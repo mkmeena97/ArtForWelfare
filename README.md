@@ -16,5 +16,5 @@ For any questions, suggestions, or discussions related to the ArtForWelfare proj
 
 - mahendrakumar27697@gmail.com
 - abhinavkumar.lko@gmail.com
-- tushar
+- dhanorkartushar2@gmail.com
 - nikhil
