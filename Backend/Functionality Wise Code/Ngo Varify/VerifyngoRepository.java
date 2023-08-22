@@ -29,5 +29,8 @@ public interface VerifyngoRepository extends JpaRepository<Login, Integer> {
 	@Query("update Login set approve=1 where user_id=:user_id")
 	public int varifyNgo(int user_id); 
 	
+	@Query("select n from Ngo n join Login l on n.user_id=l.user_id where l.role_id=4 and l.approve=0")
+	public List<Ngo> getVarifiedNgo();
+	
 	
 }

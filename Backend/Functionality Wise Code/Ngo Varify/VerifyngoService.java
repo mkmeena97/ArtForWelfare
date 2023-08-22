@@ -29,4 +29,9 @@ public class VerifyngoService {
 			return false;
 	}
 	
+	public List<Ngo> getVarifiedNgos()
+	{
+		return vrepo.getVarifiedNgo();
+	}
+	
 }
