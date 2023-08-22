@@ -1,0 +1,9 @@
+
+
+insert into orders(order_id,cust_id,amount,payment_id,pay_mode) values(78603,3001,599.00,'RX3023HR453','Cradit card');
+
+insert into order_details(od_id,order_id,art_id) 
+values
+(3201564,78603,8016),
+(3201565,78603,8020),
+(3201566,78603,8013);
