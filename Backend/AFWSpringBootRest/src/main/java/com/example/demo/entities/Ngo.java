@@ -27,9 +27,9 @@ public class Ngo {
 	@JoinColumn(name="user_id")
 	Login user_id;
 	@Column
-	private String fname;
+	private String ngo_name;
 	@Column
-	private String lname;
+	private String domain;
 	@Column
 	private int area_id;
 	
@@ -38,24 +38,21 @@ public class Ngo {
 	@Column
 	private String contact;
 	@Column
-	private Blob certificate;
+	private byte[] certificate;
 	@Column
 	private String account_no;
 	
 	
-	public Ngo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 
 
-	public Ngo( String fname, String lname, int area_id, String address, String contact,
-			Blob certificate, String account_no, Login user_id) {
+	public Ngo( String ngo_name, String domain, int area_id, String address, String contact
+			, String account_no, Login user_id) {
 		super();
 		
 		this.user_id = user_id;
-		this.fname = fname;
-		this.lname = lname;
+		this.ngo_name = ngo_name;
+		this.domain = domain;
 		this.area_id = area_id;
 		this.address = address;
 		this.contact = contact;
@@ -87,23 +84,23 @@ public class Ngo {
 	}
 
 
-	public String getFname() {
-		return fname;
+	public String getNgo_name() {
+		return ngo_name;
 	}
 
 
-	public void setFname(String fname) {
-		this.fname = fname;
+	public void setNgo_name(String ngo_name) {
+		this.ngo_name = ngo_name;
 	}
 
 
-	public String getLname() {
-		return lname;
+	public String getDomain() {
+		return domain;
 	}
 
 
-	public void setLname(String lname) {
-		this.lname = lname;
+	public void setLname(String domain) {
+		this.domain = domain;
 	}
 
 
@@ -137,12 +134,12 @@ public class Ngo {
 	}
 
 
-	public Blob getCertificate() {
+	public byte[] getCertificate() {
 		return certificate;
 	}
 
 
-	public void setCertificate(Blob certificate) {
+	public void setCertificate( byte[] certificate) {
 		this.certificate = certificate;
 	}
 

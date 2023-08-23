@@ -1,11 +1,11 @@
 package com.example.demo.entities;
 
-import java.sql.Blob;
+
 
 public class NgoReg {
 	
-	String fname;
-	String lname;
+	String ngo_name;
+	String domain;
 	String email;
 	String contact;
 	String address;
@@ -17,19 +17,26 @@ public class NgoReg {
 	int que_id;
 	String answer;
 	String Account_no;
-	Blob Certificate;
+	int role_id;
 	
-	public String getFname() {
-		return fname;
+	public int getRole_id() {
+		return role_id;
 	}
-	public void setFname(String fname) {
-		this.fname = fname;
+	public void setRole_id(int role_id) {
+		this.role_id = role_id;
 	}
-	public String getLname() {
-		return lname;
+
+	public String getNgo_name() {
+		return ngo_name;
 	}
-	public void setLname(String lname) {
-		this.lname = lname;
+	public void setNgo_name(String ngo_name) {
+		this.ngo_name = ngo_name;
+	}
+	public String getDomain() {
+		return domain;
+	}
+	public void setDomain(String domain) {
+		this.domain = domain;
 	}
 	public String getEmail() {
 		return email;
@@ -97,12 +104,7 @@ public class NgoReg {
 	public void setAccount_no(String account_no) {
 		Account_no = account_no;
 	}
-	public Blob getCertificate() {
-		return Certificate;
-	}
-	public void setCertificate(Blob certificate) {
-		Certificate = certificate;
-	}
+	
 	
 	
 	

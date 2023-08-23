@@ -25,6 +25,14 @@ public class NgoService {
 		return nrepo.save(o);
 	}
 	
+	public boolean uploadCertificate(int ngo_id,byte[] file)
+	{
+		if(nrepo.uploaCertificate(ngo_id, file)==1)
+			return true;
+		else
+			return false;
+	}
+	
 	
   
 }
