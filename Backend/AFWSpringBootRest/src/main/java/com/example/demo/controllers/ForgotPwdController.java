@@ -43,7 +43,7 @@ public class ForgotPwdController {
 	}
 	
 	@PostMapping("resetpassword")
-	public int passwordReset(@RequestBody Map<String, String> request)
+	public Boolean passwordReset(@RequestBody Map<String, String> request)
 	{
 		String emailid=request.get("emailid");
 		String password=request.get("newPassword");

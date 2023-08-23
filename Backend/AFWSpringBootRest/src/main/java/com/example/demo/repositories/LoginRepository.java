@@ -21,9 +21,6 @@ public interface LoginRepository extends JpaRepository<Login, Integer> {
 	@Query("select l from Login l where email=:emailid and answer=:answer")
 	public Optional<Login> checkAnswer(String emailid,String answer);
 	
-	@Modifying
-	@Query("UPDATE Login u SET u.password = :password WHERE u.email = :emailid")
-	@Transactional
-	public int resetPassword(String emailid,String password);
+	
 	
 }
