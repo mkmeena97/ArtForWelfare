@@ -1,10 +1,10 @@
 import React, { useEffect, useReducer, useState } from 'react'
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function NgoReg() {
   const init = {
-    fname: "",
-    lname: "",
+    ngo_name: "",
+    domain: "",
     email: "",
     contact: "",
     address: "",
@@ -14,8 +14,7 @@ function NgoReg() {
     user_name: "",
     password: "",
     account_no: "",
-    certificate:"",
-    role: 4,
+    role_id: 4,
     que_id: 0,
     answer: ""
 
@@ -38,6 +37,8 @@ function NgoReg() {
   const [allques, setAllques] = useState([]);
   const [allstates, setAllstates] = useState([]);
   const [file, setFile] = useState();
+  const[msg,setMsg]=useState([]);
+  const navigate = useNavigate();
 
   //file+json data
   const sendData = (e) => {
@@ -49,10 +50,10 @@ function NgoReg() {
     };
     fetch("http://localhost:8080/regNgo", reqOptions)
       .then((resp) => {
-        resp.json();
+        
         console.log(resp.status);
         if (resp.ok) {
-          return resp.json();
+            return resp.json();;
         } else {
           throw new Error("server error")    
         }
@@ -62,29 +63,39 @@ function NgoReg() {
         fd.append("file", file);
         const reqOptions1 = {
           method: "POST",
-          headers: {'content-type': 'multipart / form - data '},
+         // headers: {'content-type': 'multipart/form-data'},
           body: fd
         }
-        fetch("http://localhost:8080/uploadimage/"+obj.ngo_id,reqOptions1)
-          .then(resp => resp.json())
-          .then(obj => {
-            if (obj) {
-              alert("Registration successfull");
-              Navigate('/');
+        fetch("http://localhost:8080/uploadcertificate/"+obj.ngo_id,reqOptions1)
+          .then(resp=>{
+            console.log(resp);
+            if(resp.status === 200)
+            {
+              alert("Registration successful")
+              navigate("/");
             }
             else {
               alert("Image unable to update.Try again!!");
-              Navigate('/');
+              navigate("/");
             }
           })
           .then(data => console.log(JSON.stringify(data)))
-      })
-      .catch((error) => {
-        console.log(error);
-        alert("Registration Failed.");
-        window.location.reload();
-      });
-  };
+          })
+          .catch((error) => {
+          console.log(error);
+          alert("Registration Failed.");
+           window.location.reload();
+    
+})
+.catch((error)=>{
+  alert("Server error. Try later")
+  console.log(error);
+});
+    
+
+}
+
+      
   const getAreas = (id) => {
     fetch("http://localhost:8080/getAllAreas?cityid=" + id)
       .then((resp) => resp.json())
@@ -115,29 +126,29 @@ function NgoReg() {
 
         <form className='col-md-6 p-4 rounded bg-light' >
           <div className="mb-3">
-            <label className="form-label">First Name:</label>
+            <label className="form-label">NGO Name:</label>
             <input
               type="text"
               className="form-control"
-              id="fname"
-              value={info.fname}
+              id="ngo_name"
+              value={info.ngo_name}
               onChange={(e) => {
                 dispatch({
-                  type: 'update', fld: 'fname', val: e.target.value
+                  type: 'update', fld: 'ngo_name', val: e.target.value
                 })
               }}
             />
           </div>
           <div className="mb-3">
-            <label className="form-label">Last Name:</label>
+            <label className="form-label">Domain:</label>
             <input
               type="text"
               className="form-control"
-              id="lname"
-              value={info.lname}
+              id="domain"
+              value={info.domain}
               onChange={(e) => {
                 dispatch({
-                  type: 'update', fld: 'lname', val: e.target.value
+                  type: 'update', fld: 'domain', val: e.target.value
                 })
               }}
             />
