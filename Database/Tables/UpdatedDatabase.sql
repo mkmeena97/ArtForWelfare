@@ -195,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `afs`.`ngo` (
   `area_id` INT NOT NULL ,
   `address` VARCHAR(255) NOT NULL,
   `contact` VARCHAR(20) NOT NULL UNIQUE ,
-  `certificate` BLOB NULL DEFAULT NULL,
+  `certificate` LONGBLOB NULL DEFAULT NULL,
   `account_no` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`ngo_id`),
   INDEX `user_id` (`user_id` ASC) VISIBLE,
