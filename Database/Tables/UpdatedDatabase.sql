@@ -223,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `afs`.`arts` (
   `description` TEXT NULL DEFAULT NULL,
   `art_name` VARCHAR(50) NOT NULL,
   `status` VARCHAR(10)  NOT NULL DEFAULT 'unsold', 
-  `image` BLOB NOT NULL,
+  `image` LONGBLOB NOT NULL,
   PRIMARY KEY (`art_id`),
   INDEX `artist_id` (`artist_id` ASC) VISIBLE,
   INDEX `cat_id` (`cat_id` ASC) VISIBLE,
