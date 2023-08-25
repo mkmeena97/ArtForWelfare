@@ -20,18 +20,21 @@ public class VerifyngoService {
 	public List<Ngo> getNotApprovedNgos() {
         return vrepo.findNotApprovedNgo();
     }
-	
-	public Boolean varifyNgoById(int user_id)
+
+	public Boolean verifyNgoById(int ngo_id)
 	{
-		if((vrepo.varifyNgo(user_id))==1)
+		if((vrepo.verifyNgo(ngo_id))==1)
+
 			return true;
 		else
 			return false;
 	}
 	
-	public List<Ngo> getVarifiedNgos()
+
+	public List<Ngo> getVerifiedNgos()
 	{
-		return vrepo.getVarifiedNgo();
+		return vrepo.getVerifiedNgo();
+
 	}
 	
 }

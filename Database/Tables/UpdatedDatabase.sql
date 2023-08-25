@@ -195,7 +195,9 @@ CREATE TABLE IF NOT EXISTS `afs`.`ngo` (
   `area_id` INT NOT NULL ,
   `address` VARCHAR(255) NOT NULL,
   `contact` VARCHAR(20) NOT NULL UNIQUE ,
+
   `certificate` LONGBLOB  NULL DEFAULT NULL,
+
   `account_no` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`ngo_id`),
   INDEX `user_id` (`user_id` ASC) VISIBLE,
@@ -222,8 +224,10 @@ CREATE TABLE IF NOT EXISTS `afs`.`arts` (
   `ngo_id` INT NOT NULL,
   `description` TEXT NULL DEFAULT NULL,
   `art_name` VARCHAR(50) NOT NULL,
+
   `status` VARCHAR(10) NULL  DEFAULT NULL, 
   `image` LONGBLOB NULL  DEFAULT NULL,
+
   PRIMARY KEY (`art_id`),
   INDEX `artist_id` (`artist_id` ASC) VISIBLE,
   INDEX `cat_id` (`cat_id` ASC) VISIBLE,

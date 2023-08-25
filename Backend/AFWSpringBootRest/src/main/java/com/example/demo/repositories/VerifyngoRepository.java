@@ -26,11 +26,13 @@ public interface VerifyngoRepository extends JpaRepository<Login, Integer> {
 	public  List<Ngo> findNotApprovedNgo();
 	
 	@Modifying
-	@Query("update Login set approve=1 where user_id=:user_id")
-	public int varifyNgo(int user_id); 
+
+	@Query("update Login set approve=1 where user_id=(select user_id from Ngo where ngo_id=:ngo_id )")
+	public int verifyNgo(int ngo_id); 
 	
-	@Query("select n from Ngo n join Login l on n.user_id=l.user_id where l.role_id=4 and l.approve=0")
-	public List<Ngo> getVarifiedNgo();
+	@Query("select n from Ngo n join Login l on n.user_id=l.user_id where l.role_id=4 and l.approve=1")
+	public List<Ngo> getVerifiedNgo();
+
 	
 	
 }

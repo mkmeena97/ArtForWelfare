@@ -29,21 +29,9 @@ public class Art {
 	}
 
 
-	public Art(int artist_id, int cat_id, float price, int ngo_id, String description, String art_name, byte[] image) {
-		super();
-		this.artist_id = artist_id;
-		this.cat_id = cat_id;
-		this.price = price;
-		this.ngo_id = ngo_id;
-		this.description = description;
-		this.art_name = art_name;
-		this.image = image;
-	}
-	
-	
 
+	public Art(int artist_id, int cat_id, float price, int ngo_id, String description, String art_name,String status) {
 
-	public Art(int artist_id, int cat_id, float price, int ngo_id, String description, String art_name) {
 		super();
 		this.artist_id = artist_id;
 		this.cat_id = cat_id;
