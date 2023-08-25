@@ -2,9 +2,9 @@ import { useState } from "react";
 
 
 export default function ForgotPassword() {
-    const [emailid, setEmail] = useState("");
+    const [email, setEmail] = useState("");
     const [securityQuestion, setSecurityQuestion] = useState("");
-    const [answer, setAnswer] = useState("");
+    const [securityAnswer, setSecurityAnswer] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
     const [isPasswordReset, setIsPasswordReset] = useState(false);
@@ -12,13 +12,14 @@ export default function ForgotPassword() {
 
     const handleEmailSubmit = (e) => {
         e.preventDefault();
-        const params = new URLSearchParams();
-        params.append('email', emailid);
-
-        fetch(`http://localhost:8080/checkemail?${params.toString()}`)
+        const reqOptions = {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ email })
+        };
+        fetch("http://localhost:8080/checkemail", reqOptions)
             .then(resp => {
                 if (resp.ok) {
-                    setMsg("");
                     return resp.json();
                 } else {
                     throw new Error("server Error");
@@ -28,29 +29,27 @@ export default function ForgotPassword() {
                 if (Object.keys(data).length === 0) {
                     setMsg("Email not found");
                 } else {
-                    setSecurityQuestion(data.que_text);                     //////////////////////////////////////
+                    setSecurityQuestion(data.question);                     //////////////////////////////////////
                     setIsQuestionAnswered(true);
                 }
             })
             .catch(error => {
                 console.error(error);
-                setMsg("Incorrect Email ! please enter correct Email Id");
+                setMsg("Server error! Please try again later.");
             });
     
 
     }
     const handleAnswerSubmit = (e) => {
-        
         e.preventDefault();
         const reqOptions = {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ emailid, answer })
+            body: JSON.stringify({ securityAnswer })
         };
-        fetch("http://localhost:8080/checksecurityanswer" , reqOptions)
+        fetch("http://localhost:8080/checksecurityanswer", reqOptions)
             .then(resp => {
                 if (resp.ok) {
-                    setMsg("");
                     return resp.json();
                 } else {
                     throw new Error("server Error");
@@ -66,7 +65,7 @@ export default function ForgotPassword() {
             })
             .catch(error => {
                 console.error(error);
-                setMsg("Wrong Answer.please enter right answer");
+                setMsg("Server error! Please try again later.");
             });
     };
     
@@ -75,12 +74,11 @@ export default function ForgotPassword() {
         const reqOptions = {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ emailid, newPassword }) // Send email and new password
+            body: JSON.stringify({ email, newPassword }) // Send email and new password
         };
         fetch("http://localhost:8080/resetpassword", reqOptions) // Use the appropriate endpoint
             .then(resp => {
                 if (resp.ok) {
-                    setMsg("");
                     return resp.json();
                 } else {
                     throw new Error("server Error");
@@ -111,7 +109,7 @@ export default function ForgotPassword() {
                                     type="email"
                                     className="form-control"
                                     id="email"
-                                    value={emailid.email}
+                                    value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
                                 />
@@ -126,8 +124,8 @@ export default function ForgotPassword() {
                             <input
                                 type="text"
                                 className="form-control mb-3"
-                                value={answer}
-                                onChange={(e) => setAnswer(e.target.value)}
+                                value={securityAnswer}
+                                onChange={(e) => setSecurityAnswer(e.target.value)}
                                 required
                             />
                             <button type="submit" className="btn btn-primary">Submit</button>
@@ -150,7 +148,6 @@ export default function ForgotPassword() {
                         </form>
                     )}
                 </div>
-                <p>{msg}</p>
             </div>
         </div>
     );

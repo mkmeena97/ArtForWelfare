@@ -4,12 +4,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -31,6 +34,7 @@ public class ArtController {
 		return aservice.getUnsoldArt();
 	}
 	
+
 	@GetMapping("/getArtById")
 	public Art getById(@RequestParam int art_id)
 	{
@@ -56,6 +60,7 @@ public class ArtController {
 	
 	@PostMapping(value="/uploadimage/{art_id}",consumes = "multipart/form-data")
 	public boolean uploadArt(@PathVariable int art_id,@RequestBody MultipartFile file)
+
 	{
 		boolean flag=true;
 		try
