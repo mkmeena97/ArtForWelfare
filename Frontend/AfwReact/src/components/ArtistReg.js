@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react'
-
+import { useNavigate } from "react-router-dom";
 
 export default function ArtistReg() {
   const init = {
@@ -35,7 +35,7 @@ export default function ArtistReg() {
   const [allcities, setAllcities] = useState([]);
   const [allques, setAllques] = useState([]);
   const [allstates, setAllstates] = useState([]);
-  const [allspec, setAllspec]= useState([]);
+  const navigate = useNavigate();
 
   const sendData = (e) => {
     e.preventDefault();
@@ -51,7 +51,7 @@ export default function ArtistReg() {
         if (resp.status === 200) {
           //resp.json();
           alert("Registration Successful...!");
-
+          navigate("/homepage");
         } else {
           alert("Registration Failed.");
           window.location.reload();

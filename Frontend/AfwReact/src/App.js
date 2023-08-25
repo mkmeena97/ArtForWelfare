@@ -14,6 +14,9 @@ import CustomerReg from "./components/CustomerReg";
 import ArtistReg from "./components/ArtistReg";
 import artlogo from "../src/images/artlogo1.png";
 import NgoReg from "./components/NgoReg";
+import AddArt from "./components/AddArt";
+import ArtArt from "./components/ArtArt";
+import Cart from "./components/CartComp";
 
 function App() {
   //referering initial state of logged
@@ -120,7 +123,8 @@ function App() {
         <Route path="/reg_customer" element={<CustomerReg />}></Route>
         <Route path="/reg_ngo" element={<NgoReg />}></Route>
         <Route path="/reg_artist" element={<ArtistReg />}></Route>
-
+        <Route path="/addart" element={<AddArt></AddArt>}></Route>
+        <Route path="/cart" element={<Cart></Cart>}></Route>
         <Route exact element={<Navigate to="/homepage" />} path="/" />
         <Route exact element={<Navigate to="/404" />} path="*" />
       </Routes>

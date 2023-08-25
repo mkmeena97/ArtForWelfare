@@ -1,10 +1,10 @@
 import React, { useEffect, useReducer, useState } from 'react'
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function NgoReg() {
   const init = {
-    fname: "",
-    lname: "",
+    ngo_name: "",
+    domain: "",
     email: "",
     contact: "",
     address: "",
@@ -14,10 +14,9 @@ function NgoReg() {
     user_name: "",
     password: "",
     account_no: "",
-    role: 4,
+    role_id: 4,
     que_id: 0,
     answer: ""
-
   }
 
   const reducer = (state, action) => {
@@ -38,6 +37,8 @@ function NgoReg() {
   const [allstates, setAllstates] = useState([]);
   const [file, setFile] = useState();
 
+  const navigate = useNavigate();
+
   //file+json data
   const sendData = (e) => {
     e.preventDefault();
@@ -48,15 +49,12 @@ function NgoReg() {
     };
     fetch("http://localhost:8080/regNgo", reqOptions)
       .then((resp) => {
-        resp.json();
+        
         console.log(resp.status);
-        if (resp.status === 200) {
-          //resp.json();
-          alert("Registration Successful...!");
-
+        if (resp.ok) {
+            return resp.json();;
         } else {
-          alert("Registration Failed.");
-          window.location.reload();
+          throw new Error("server error")    
         }
       })
       .then(obj => {
@@ -64,31 +62,39 @@ function NgoReg() {
         fd.append("file", file);
         const reqOptions1 = {
           method: "POST",
-          headers: {
-            'content-type': 'multipart / form - data '
-          },
+        //  headers: {'content-type': 'multipart/form-data'},
           body: fd
         }
-        fetch("http://localhost:8080/uploadimage/"+obj.ngo_id,reqOptions1)
-          .then(resp => resp.json())
-          .then(obj => {
-            if (obj) {
-              alert("Registration successfull");
-              Navigate('/');
+        fetch("http://localhost:8080/uploadcertificate/"+obj.ngo_id,reqOptions1)
+          .then(resp=>{
+            console.log(resp);
+            if(resp.status === 200)
+            {
+              alert("Registration successful")
+              navigate("/");
             }
             else {
-              alert("Image unable to updateTry again!");
-              Navigate('/');
+              alert("Certificate unable to update.Try again!!");
+              navigate("/");
             }
           })
           .then(data => console.log(JSON.stringify(data)))
-      })
-      .catch((e) => {
-        console.log(e);
-        alert("Registration Failed.");
-        window.location.reload();
-      });
-  };
+          })
+          .catch((error) => {
+          console.log(error);
+          alert("Server Error");
+           window.location.reload();
+    
+})
+.catch((error)=>{
+  alert("Server error. Try later")
+  console.log(error);
+});
+    
+
+}
+
+      
   const getAreas = (id) => {
     fetch("http://localhost:8080/getAllAreas?cityid=" + id)
       .then((resp) => resp.json())
@@ -119,29 +125,29 @@ function NgoReg() {
 
         <form className='col-md-6 p-4 rounded bg-light' >
           <div className="mb-3">
-            <label className="form-label">First Name:</label>
+            <label className="form-label">NGO Name:</label>
             <input
               type="text"
               className="form-control"
-              id="fname"
-              value={info.fname}
+              id="ngo_name"
+              value={info.ngo_name}
               onChange={(e) => {
                 dispatch({
-                  type: 'update', fld: 'fname', val: e.target.value
+                  type: 'update', fld: 'ngo_name', val: e.target.value
                 })
               }}
             />
           </div>
           <div className="mb-3">
-            <label className="form-label">Last Name:</label>
+            <label className="form-label">Domain:</label>
             <input
               type="text"
               className="form-control"
-              id="lname"
-              value={info.lname}
+              id="domain"
+              value={info.domain}
               onChange={(e) => {
                 dispatch({
-                  type: 'update', fld: 'lname', val: e.target.value
+                  type: 'update', fld: 'domain', val: e.target.value
                 })
               }}
             />
@@ -264,11 +270,11 @@ function NgoReg() {
             <input
               type="text"
               className="form-control"
-              id="acc"
-              value={info.acc}
+              id="account_no"
+              value={info.account_no}
               onChange={(e) => {
                 dispatch({
-                  type: 'update', fld: 'acc', val: e.target.value
+                  type: 'update', fld: 'account_no', val: e.target.value
                 })
               }}
             />
@@ -280,6 +286,8 @@ function NgoReg() {
               type="file"
               className="form-control"
               id="certificate"
+              name="certificate"
+              // value={info.certificate}
               onChange={(e) => setFile(e.target.files[0])}
             />
           </div>
@@ -359,6 +367,7 @@ function NgoReg() {
         </form>
       </ div >
       <p>{JSON.stringify(info)}</p>
+      <p>{file && file.name}</p>
     </div>
   )
 }
