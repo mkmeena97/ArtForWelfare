@@ -222,8 +222,8 @@ CREATE TABLE IF NOT EXISTS `afs`.`arts` (
   `ngo_id` INT NOT NULL,
   `description` TEXT NULL DEFAULT NULL,
   `art_name` VARCHAR(50) NOT NULL,
-  `status` VARCHAR(10)  NOT NULL DEFAULT 'unsold', 
-  `image` BLOB NOT NULL,
+  `status` VARCHAR(10) NULL DEFAULT NULL, 
+  `image` BLOB NULL DEFAULT NULL,
   PRIMARY KEY (`art_id`),
   INDEX `artist_id` (`artist_id` ASC) VISIBLE,
   INDEX `cat_id` (`cat_id` ASC) VISIBLE,
@@ -241,6 +241,7 @@ CREATE TABLE IF NOT EXISTS `afs`.`arts` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
+
 
 DELIMITER //
 CREATE PROCEDURE UpdateFundsForSoldArt(art_id INT, ngo_id INT, price DECIMAL(10, 2))
@@ -271,6 +272,8 @@ BEGIN
 END;
 //
 DELIMITER ;
+
+
 
 
 -- -----------------------------------------------------
