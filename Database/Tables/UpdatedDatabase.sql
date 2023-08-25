@@ -195,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `afs`.`ngo` (
   `area_id` INT NOT NULL ,
   `address` VARCHAR(255) NOT NULL,
   `contact` VARCHAR(20) NOT NULL UNIQUE ,
-  `certificate` BLOB NULL DEFAULT NULL,
+  `certificate` LONGBLOB  NULL DEFAULT NULL,
   `account_no` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`ngo_id`),
   INDEX `user_id` (`user_id` ASC) VISIBLE,
@@ -222,8 +222,8 @@ CREATE TABLE IF NOT EXISTS `afs`.`arts` (
   `ngo_id` INT NOT NULL,
   `description` TEXT NULL DEFAULT NULL,
   `art_name` VARCHAR(50) NOT NULL,
-  `status` VARCHAR(10)  NOT NULL DEFAULT 'unsold', 
-  `image` BLOB NOT NULL,
+  `status` VARCHAR(10) NULL  DEFAULT NULL, 
+  `image` LONGBLOB NULL  DEFAULT NULL,
   PRIMARY KEY (`art_id`),
   INDEX `artist_id` (`artist_id` ASC) VISIBLE,
   INDEX `cat_id` (`cat_id` ASC) VISIBLE,
@@ -544,28 +544,30 @@ VALUES
 
 -- Insert data into afs.art table
 
-INSERT INTO `afs`.`arts` (`artist_id`, `cat_id`, `price`, `ngo_id`, `description`, `art_name`, `image`)
+INSERT INTO `afs`.`arts` 
+(`artist_id`, `cat_id`, `price`, `ngo_id`, `description`, `art_name`, `image`, `status`)
 VALUES
-    (2001, 201, 100.00, 5001, 'Beautiful painting of a landscape', 'Landscape Painting', 'landscape.jpg'),
-    (2002, 202, 250.00, 5002, 'Elegant sculpture depicting a figure', 'Elegant Sculpture', 'sculpture.jpg'),
-    (2003, 203, 50.00, 5001, 'Vibrant photograph capturing a moment', 'Vibrant Photography', 'photo.jpg'),
-    (2001, 201, 75.00, 5002, 'Abstract artwork with bold colors', 'Abstract Art', 'abstract.jpg'),
-    (2004, 204, 180.00, 5001, 'Detailed pencil drawing of a portrait', 'Portrait Drawing', 'drawing.jpg'),
-    (2002, 205, 120.00, 5002, 'Digital art with a futuristic theme', 'Futuristic Digital Art', 'digital_art.jpg'),
-    (2003, 206, 300.00, 5001, 'Mixed media piece with various materials', 'Mixed Media Artwork', 'mixed_media.jpg'),
-    (2005, 207, 40.00, 5002, 'Print of a nature scene', 'Nature Print', 'nature_print.jpg'),
-    (2004, 208, 220.00, 5001, 'Ceramic vase with intricate design', 'Intricate Ceramic Vase', 'ceramic_vase.jpg'),
-    (2001, 209, 90.00, 5002, 'Textile art with vibrant patterns', 'Vibrant Textile Art', 'textile_art.jpg'),
-    (2003, 210, 160.00, 5001, 'Illustration of a whimsical fantasy world', 'Fantasy Illustration', 'fantasy_illustration.jpg'),
-    (2004, 201, 200.00, 5002, 'Realistic oil painting of a still life', 'Still Life Painting', 'still_life.jpg'),
-    (2002, 202, 130.00, 5001, 'Bronze sculpture of an animal', 'Animal Sculpture', 'animal_sculpture.jpg'),
-    (2005, 203, 70.00, 5002, 'Black and white photography', 'Black and White Photo', 'bw_photo.jpg'),
-    (2002, 204, 85.00, 5001, 'Charcoal drawing of a cityscape', 'Cityscape Drawing', 'cityscape_drawing.jpg'),
-    (2001, 205, 180.00, 5002, 'Digital artwork with vibrant colors', 'Vibrant Digital Art', 'vibrant_digital.jpg'),
-    (2003, 206, 270.00, 5001, 'Mixed media collage with abstract elements', 'Abstract Mixed Media', 'abstract_collage.jpg'),
-    (2004, 207, 30.00, 5002, 'Print of a seascape', 'Seascape Print', 'seascape_print.jpg'),
-    (2005, 208, 240.00, 5001, 'Handcrafted ceramic bowl', 'Handcrafted Ceramic Bowl', 'ceramic_bowl.jpg'),
-    (2003, 209, 110.00, 5002, 'Textile artwork inspired by nature', 'Nature-Inspired Textile Art', 'nature_textile.jpg');
+    (2001, 201, 7500.00, 5001, 'Beautiful painting of a landscape', 'Landscape Painting', 'landscape.jpg', 'unsold'),
+    (2002, 202, 6500.00, 5002, 'Elegant sculpture depicting a figure', 'Elegant Sculpture', 'sculpture.jpg', 'unsold'),
+    (2003, 203, 6000.00, 5001, 'Vibrant photograph capturing a moment', 'Vibrant Photography', 'photo.jpg', 'sold'),
+    (2001, 201, 5500.00, 5002, 'Abstract artwork with bold colors', 'Abstract Art', 'abstract.jpg', 'sold'),
+    (2004, 204, 8000.00, 5001, 'Detailed pencil drawing of a portrait', 'Portrait Drawing', 'drawing.jpg', 'unsold'),
+    (2002, 205, 7200.00, 5002, 'Digital art with a futuristic theme', 'Futuristic Digital Art', 'digital_art.jpg', 'unsold'),
+    (2003, 206, 9500.00, 5001, 'Mixed media piece with various materials', 'Mixed Media Artwork', 'mixed_media.jpg', 'unsold'),
+    (2005, 207, 6000.00, 5002, 'Print of a nature scene', 'Nature Print', 'nature_print.jpg', 'unsold'),
+    (2004, 208, 7400.00, 5001, 'Ceramic vase with intricate design', 'Intricate Ceramic Vase', 'ceramic_vase.jpg', 'sold'),
+    (2001, 209, 5500.00, 5002, 'Textile art with vibrant patterns', 'Vibrant Textile Art', 'textile_art.jpg', 'unsold'),
+    (2003, 210, 8200.00, 5001, 'Illustration of a whimsical fantasy world', 'Fantasy Illustration', 'fantasy_illustration.jpg', 'unsold'),
+    (2004, 201, 6700.00, 5002, 'Realistic oil painting of a still life', 'Still Life Painting', 'still_life.jpg', 'unsold'),
+    (2002, 202, 7200.00, 5001, 'Bronze sculpture of an animal', 'Animal Sculpture', 'animal_sculpture.jpg', 'unsold'),
+    (2005, 203, 5300.00, 5002, 'Black and white photography', 'Black and White Photo', 'bw_photo.jpg', 'unsold'),
+    (2002, 204, 5900.00, 5001, 'Charcoal drawing of a cityscape', 'Cityscape Drawing', 'cityscape_drawing.jpg', 'unsold'),
+    (2001, 205, 6100.00, 5002, 'Digital artwork with vibrant colors', 'Vibrant Digital Art', 'vibrant_digital.jpg', 'unsold'),
+    (2003, 206, 7400.00, 5001, 'Mixed media collage with abstract elements', 'Abstract Mixed Media', 'abstract_collage.jpg', 'unsold'),
+    (2004, 207, 5200.00, 5002, 'Print of a seascape', 'Seascape Print', 'seascape_print.jpg', 'unsold'),
+    (2005, 208, 6800.00, 5001, 'Handcrafted ceramic bowl', 'Handcrafted Ceramic Bowl', 'ceramic_bowl.jpg', 'sold'),
+    (2003, 209, 6100.00, 5002, 'Textile artwork inspired by nature', 'Nature-Inspired Textile Art', 'nature_textile.jpg', 'unsold');
+
 
     
   
