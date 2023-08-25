@@ -42,12 +42,8 @@ public class Ngo {
 	@Column
 	private String account_no;
 	
-
-
-	public Ngo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
+	
 
 
 	public Ngo( String ngo_name, String domain, int area_id, String address, String contact
@@ -60,6 +56,7 @@ public class Ngo {
 		this.area_id = area_id;
 		this.address = address;
 		this.contact = contact;
+		this.certificate = certificate;
 		this.account_no = account_no;
 	}
 	

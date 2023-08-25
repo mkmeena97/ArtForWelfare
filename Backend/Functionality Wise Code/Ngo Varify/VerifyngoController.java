@@ -23,28 +23,23 @@ public class VerifyngoController {
 	VerifyngoService vservice;
 	
 	@GetMapping("/notverifiedNgo")
-
-	public List<Ngo> notVerifiedNgo()
-
+	public List<Ngo> notVarifiedNgo()
 	{
 		
 		return vservice.getNotApprovedNgos();
 		
 	}
 	
-
-	@GetMapping("/verifyngo")
-	public Boolean varifyNgo(@RequestParam int ngo_id)
+	@PostMapping("/varifyngo/{user_id}")
+	public Boolean varifyNgo(@PathVariable int user_id)
 	{
-		System.out.println(ngo_id);
-		return vservice.verifyNgoById(ngo_id);
+		return vservice.varifyNgoById(user_id);
 	}
 	
-	@GetMapping("/verifiedNgo")
-	public List<Ngo> verifiedngo()
+	@GetMapping("/varifiedNgo")
+	public List<Ngo> varifiedngo()
 	{
-		return vservice.getVerifiedNgos();
-
+		return vservice.getVarifiedNgos();
 	}
 
 }
