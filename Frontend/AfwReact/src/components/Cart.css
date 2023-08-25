@@ -1,0 +1,46 @@
+/* Cart.css */
+
+.cart-container {
+  display: flex;
+  justify-content: flex-end;
+  /* Align the cart to the right side of the container */
+}
+
+.cart {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  right: 30%;
+  max-width: 300px;
+
+  /* Set a maximum width to prevent the cart from getting too wide */
+}
+
+.cart h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.cart ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart li {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-item span {
+  margin: 0;
+  padding: 0;
+}
+
+/* Add more styling as needed */
