@@ -542,31 +542,7 @@ VALUES
     ('Textile Art'),
     ('Illustration');
 
--- Insert data into afs.art table
 
-INSERT INTO `afs`.`arts` 
-(`artist_id`, `cat_id`, `price`, `ngo_id`, `description`, `art_name`, `image`, `status`)
-VALUES
-    (2001, 201, 7500.00, 5001, 'Beautiful painting of a landscape', 'Landscape Painting', 'landscape.jpg', 'unsold'),
-    (2002, 202, 6500.00, 5002, 'Elegant sculpture depicting a figure', 'Elegant Sculpture', 'sculpture.jpg', 'unsold'),
-    (2003, 203, 6000.00, 5001, 'Vibrant photograph capturing a moment', 'Vibrant Photography', 'photo.jpg', 'sold'),
-    (2001, 201, 5500.00, 5002, 'Abstract artwork with bold colors', 'Abstract Art', 'abstract.jpg', 'sold'),
-    (2004, 204, 8000.00, 5001, 'Detailed pencil drawing of a portrait', 'Portrait Drawing', 'drawing.jpg', 'unsold'),
-    (2002, 205, 7200.00, 5002, 'Digital art with a futuristic theme', 'Futuristic Digital Art', 'digital_art.jpg', 'unsold'),
-    (2003, 206, 9500.00, 5001, 'Mixed media piece with various materials', 'Mixed Media Artwork', 'mixed_media.jpg', 'unsold'),
-    (2005, 207, 6000.00, 5002, 'Print of a nature scene', 'Nature Print', 'nature_print.jpg', 'unsold'),
-    (2004, 208, 7400.00, 5001, 'Ceramic vase with intricate design', 'Intricate Ceramic Vase', 'ceramic_vase.jpg', 'sold'),
-    (2001, 209, 5500.00, 5002, 'Textile art with vibrant patterns', 'Vibrant Textile Art', 'textile_art.jpg', 'unsold'),
-    (2003, 210, 8200.00, 5001, 'Illustration of a whimsical fantasy world', 'Fantasy Illustration', 'fantasy_illustration.jpg', 'unsold'),
-    (2004, 201, 6700.00, 5002, 'Realistic oil painting of a still life', 'Still Life Painting', 'still_life.jpg', 'unsold'),
-    (2002, 202, 7200.00, 5001, 'Bronze sculpture of an animal', 'Animal Sculpture', 'animal_sculpture.jpg', 'unsold'),
-    (2005, 203, 5300.00, 5002, 'Black and white photography', 'Black and White Photo', 'bw_photo.jpg', 'unsold'),
-    (2002, 204, 5900.00, 5001, 'Charcoal drawing of a cityscape', 'Cityscape Drawing', 'cityscape_drawing.jpg', 'unsold'),
-    (2001, 205, 6100.00, 5002, 'Digital artwork with vibrant colors', 'Vibrant Digital Art', 'vibrant_digital.jpg', 'unsold'),
-    (2003, 206, 7400.00, 5001, 'Mixed media collage with abstract elements', 'Abstract Mixed Media', 'abstract_collage.jpg', 'unsold'),
-    (2004, 207, 5200.00, 5002, 'Print of a seascape', 'Seascape Print', 'seascape_print.jpg', 'unsold'),
-    (2005, 208, 6800.00, 5001, 'Handcrafted ceramic bowl', 'Handcrafted Ceramic Bowl', 'ceramic_bowl.jpg', 'sold'),
-    (2003, 209, 6100.00, 5002, 'Textile artwork inspired by nature', 'Nature-Inspired Textile Art', 'nature_textile.jpg', 'unsold');
 
 
     
