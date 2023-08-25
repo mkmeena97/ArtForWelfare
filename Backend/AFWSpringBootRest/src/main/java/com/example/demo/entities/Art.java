@@ -29,7 +29,9 @@ public class Art {
 	}
 
 
+
 	public Art(int artist_id, int cat_id, float price, int ngo_id, String description, String art_name,String status) {
+
 		super();
 		this.artist_id = artist_id;
 		this.cat_id = cat_id;

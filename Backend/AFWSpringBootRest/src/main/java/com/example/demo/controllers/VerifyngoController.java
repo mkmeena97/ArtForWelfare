@@ -23,13 +23,16 @@ public class VerifyngoController {
 	VerifyngoService vservice;
 	
 	@GetMapping("/notverifiedNgo")
+
 	public List<Ngo> notVerifiedNgo()
+
 	{
 		
 		return vservice.getNotApprovedNgos();
 		
 	}
 	
+
 	@GetMapping("/verifyngo")
 	public Boolean varifyNgo(@RequestParam int ngo_id)
 	{
@@ -41,6 +44,7 @@ public class VerifyngoController {
 	public List<Ngo> verifiedngo()
 	{
 		return vservice.getVerifiedNgos();
+
 	}
 
 }

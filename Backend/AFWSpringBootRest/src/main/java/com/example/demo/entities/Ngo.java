@@ -43,10 +43,12 @@ public class Ngo {
 	private String account_no;
 	
 
+
 	public Ngo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 
 	public Ngo( String ngo_name, String domain, int area_id, String address, String contact
 			, String account_no, Login user_id) {
