@@ -17,7 +17,6 @@ function NgoReg() {
     role_id: 4,
     que_id: 0,
     answer: ""
-
   }
 
   const reducer = (state, action) => {
@@ -37,7 +36,7 @@ function NgoReg() {
   const [allques, setAllques] = useState([]);
   const [allstates, setAllstates] = useState([]);
   const [file, setFile] = useState();
-  const[msg,setMsg]=useState([]);
+
   const navigate = useNavigate();
 
   //file+json data
@@ -63,7 +62,7 @@ function NgoReg() {
         fd.append("file", file);
         const reqOptions1 = {
           method: "POST",
-         // headers: {'content-type': 'multipart/form-data'},
+        //  headers: {'content-type': 'multipart/form-data'},
           body: fd
         }
         fetch("http://localhost:8080/uploadcertificate/"+obj.ngo_id,reqOptions1)
@@ -75,7 +74,7 @@ function NgoReg() {
               navigate("/");
             }
             else {
-              alert("Image unable to update.Try again!!");
+              alert("Certificate unable to update.Try again!!");
               navigate("/");
             }
           })
@@ -83,7 +82,7 @@ function NgoReg() {
           })
           .catch((error) => {
           console.log(error);
-          alert("Registration Failed.");
+          alert("Server Error");
            window.location.reload();
     
 })
@@ -287,6 +286,7 @@ function NgoReg() {
               type="file"
               className="form-control"
               id="certificate"
+              name="certificate"
               // value={info.certificate}
               onChange={(e) => setFile(e.target.files[0])}
             />
@@ -367,6 +367,7 @@ function NgoReg() {
         </form>
       </ div >
       <p>{JSON.stringify(info)}</p>
+      <p>{file && file.name}</p>
     </div>
   )
 }
