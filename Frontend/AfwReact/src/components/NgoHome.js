@@ -14,7 +14,6 @@ export default function NgoHome(){
             setArtist(obj);
         })
     },[])
-}
 
     return(
         <div>
