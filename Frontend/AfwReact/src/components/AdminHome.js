@@ -1,16 +1,43 @@
 import { Link, NavLink, Route, Routes } from "react-router-dom";
 import artlogo from "../images/artlogo1.png";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminHome(){
 
     const[vngo,setVngo]= useState([])
+    const navigate = useNavigate();
 
   useEffect(()=>{
     fetch("http://localhost:8080/notverifiedNgo") 
     .then(res=>res.json())
     .then(vngo=>setVngo(vngo))
   },[])
+
+ // const userid = JSON.parse(localStorage.getItem("loggeduser")).user_id;
+  const handleVerify = (ngo_id) => {
+    console.log(ngo_id);
+    fetch("http://localhost:8080/verifyngo?ngo_id="+ngo_id)
+    .then(resp => {
+      if(resp.ok)
+      {
+        alert("Ngo Verified Successfully...");
+        return resp.json();
+      }
+      else
+      {
+        throw new Error("server error")
+      }
+    })
+    .then(obj => {
+      alert("Request accepted..check application status");
+     // navigate("/admin_home");
+      window.location.reload(true);
+  
+    })
+    .catch((error)=>alert("Server error. Try later"))
+
+  }
 
     return(
         
@@ -81,21 +108,26 @@ export default function AdminHome(){
         {vngo.map(v => (
             <tr >
                 <td>{v.ngo_id}</td>
-                <td>{v.fname}</td>
-                <td>{v.lname}</td>
+                <td>{v.ngo_name}</td>
+                <td>{v.domain}</td>
                 <td>
-    {v.certificate ? (
-        <a
-            href={`data:application/octet-stream;base64,${btoa(String.fromCharCode(...new Uint8Array(v.certificate)))}`}
-            download="certificate.pdf"
-        >
-            Download Certificate
-        </a>
-    ) : (
-        <span>No Certificate Available</span>
-    )}
-</td>
-                <td><button className="btn btn-primary" >Verify</button></td>
+                    <div style={{display: v?"inline":"none"}}>
+                        <img src={`data:image/jpeg;base64,${v && v.certificate}`} width="200" height="200" />
+                    </div>
+                </td>
+                {/* <td>
+                  {v.certificate ? (
+                      <a
+                      href={`data:application/octet-stream;base64,${btoa(String.fromCharCode(...new Uint8Array(v.certificate)))}`}
+                      download="certificate.pdf"
+                      >
+                      Download Certificate
+                      </a>
+                    ) : (
+                    <span>No Certificate Available</span>
+                    )}
+                </td> */}
+                <td><button className="btn btn-primary" onClick={() => handleVerify(v.ngo_id)}>Verify</button></td>
             </tr>
         ))}
     </tbody>

@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react'
-
+import { useNavigate } from "react-router-dom";
 
 export default function CustomerReg() {
   const init = {
@@ -35,7 +35,7 @@ export default function CustomerReg() {
   const [allcities, setAllcities] = useState([]);
   const [allques, setAllques] = useState([]);
   const [allstates, setAllstates] = useState([]);
-
+  const navigate = useNavigate();
   const sendData = (e) => {
     e.preventDefault();
     const reqOptions = {
@@ -50,7 +50,7 @@ export default function CustomerReg() {
         if (resp.status === 200) {
           //resp.json();
           alert("Registration Successful...!");
-
+          navigate("/homepage");
         } else {
           alert("Registration Failed.");
           window.location.reload();
