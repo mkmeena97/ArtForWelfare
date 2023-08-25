@@ -5,10 +5,12 @@ import java.sql.Blob;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.entities.Area;
 import com.example.demo.entities.Customer;
@@ -43,16 +45,32 @@ public class NgoController {
 		
 	}
 	
-	@GetMapping("/regNgo")
+	@PostMapping("/regNgo")
 	public Ngo regNgo(@RequestBody NgoReg o )
 	{
-		Role r = rservice.getRole(3);
+		Role r = rservice.getRole(o.getRole_id());
 		Login l = new Login(o.getUser_name(),o.getPassword(),r,false,o.getEmail(),o.getQue_id(),o.getAnswer());
 		Login saved = lservice.save(l);
 		
 		
-		Ngo n = new Ngo(o.getFname(),o.getLname(),o.getArea_id(),o.getAddress(),o.getContact(),o.getCertificate(),o.getAccount_no(),saved);
+		Ngo n = new Ngo(o.getNgo_name(),o.getDomain(),o.getArea_id(),o.getAddress(),o.getContact(),o.getAccount_no(),saved);
 		return nservice.saveNgo(n);
+	}
+	
+	@PostMapping(value="/uploadcertificate/{ngo_id}",consumes = "multipart/form-data")
+	public boolean uploadImage(@PathVariable int ngo_id,@RequestBody MultipartFile file)
+	{
+		boolean flag=true;
+		try
+		{
+			flag=nservice.uploadCertificate(ngo_id, file.getBytes());
+		}
+		catch(Exception e)
+		{
+			flag=false;
+		}
+		return flag;
+		
 	}
 	
 	
