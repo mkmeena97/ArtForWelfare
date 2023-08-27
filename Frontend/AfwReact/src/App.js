@@ -15,6 +15,13 @@ import ArtistReg from "./components/ArtistReg";
 import artlogo from "../src/images/artlogo1.png";
 import NgoReg from "./components/NgoReg";
 
+import AddArt from "./components/AddArt";
+import CartPage from "./components/CartComp";
+import ViewNgoFund from "./components/ViewNgoFund";
+import ApproveNgo from "./components/ApproveNgo";
+import AfwFundComponent from "./components/AfwFund";
+
+
 function App() {
   //referering initial state of logged
   const mystate = useSelector((state) => state.logged);
@@ -64,6 +71,8 @@ function App() {
                     Contact
                   </NavLink>
                 </li>
+                
+                
 
                 <li class="nav-item dropdown pe-4">
                   <a
@@ -111,7 +120,7 @@ function App() {
         <Route element={<Home />} path="homepage" />
 
         <Route path="/login" element={<LoginComp />}></Route>
-        <Route path="/admin_home" element={<AdminHome />}></Route>
+        
         <Route path="/ngo_home" element={<NgoHome />}></Route>
         <Route path="/customer_home" element={<CustomerHome />}></Route>
         <Route path="/artist_home" element={<ArtistHome />}></Route>
@@ -120,6 +129,19 @@ function App() {
         <Route path="/reg_customer" element={<CustomerReg />}></Route>
         <Route path="/reg_ngo" element={<NgoReg />}></Route>
         <Route path="/reg_artist" element={<ArtistReg />}></Route>
+        <Route path="/addart" element={<AddArt></AddArt>}></Route>
+        <Route path="/cart" element={<CartPage></CartPage>}></Route>
+        
+        <Route path="/viewfund" element={<ViewNgoFund></ViewNgoFund>}></Route>
+        <Route path="/viewafwfund" element={<AfwFundComponent/>}></Route>
+
+
+        <Route path="/admin_home" element={<AdminHome />}>
+            <Route  path="approve_ngo" element={<ApproveNgo />}></Route>
+        </Route>
+
+
+
 
         <Route exact element={<Navigate to="/homepage" />} path="/" />
         <Route exact element={<Navigate to="/404" />} path="*" />
