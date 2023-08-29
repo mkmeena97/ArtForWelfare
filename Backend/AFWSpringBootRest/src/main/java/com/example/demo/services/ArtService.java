@@ -19,18 +19,35 @@ public class ArtService {
 		return arepo.getUnsoldArts();
 	}
 	
+
+	public List<Art> getArtsByArtist(int artist_id)
+	{
+		return arepo.getArtsOfArtist(artist_id);
+	}
+	
+	
+
 	public Art addArt(Art a)
 	{
 		return arepo.save(a);
 	}
 	
-	public boolean uploadImage(int art_id,byte[] image)
+
+	public boolean uploadImage(int art_id,byte[] file)
 	{
-		if(arepo.uploadImage(art_id, image)==1)
+		if(arepo.uploadImage(art_id, file)==1)
+
 			return true;
 		else
 			return false;
 	}
 	
+
+	public Art getArtById(int art_id)
+	{
+		return arepo.findById(art_id).get();
+	}
+	
+
 
 }

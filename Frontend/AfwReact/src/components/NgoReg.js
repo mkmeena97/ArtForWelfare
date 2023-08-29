@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 
 function NgoReg() {
+<<<<<<< HEAD
   const init = 
     {
         ngo_name: { value: "", hasError: true, touched: false, error: "" },
@@ -95,6 +96,23 @@ function NgoReg() {
           break;   
       }
       return { hasError, error }
+=======
+  const init = {
+    ngo_name: "",
+    domain: "",
+    email: "",
+    contact: "",
+    address: "",
+    area_id: 0,
+    city_id: 0,
+    state_id: 0,
+    user_name: "",
+    password: "",
+    account_no: "",
+    role_id: 4,
+    que_id: 0,
+    answer: ""
+>>>>>>> 6da3b653c287f2cc3f9c2012cdfd2701493e4d86
   }
 
   const reducer = (state, action) => {
@@ -126,7 +144,11 @@ function NgoReg() {
   const [allques, setAllques] = useState([]);
   const [allstates, setAllstates] = useState([]);
   const [file, setFile] = useState();
+<<<<<<< HEAD
   const [errors, setErrors] = useState({});
+=======
+
+>>>>>>> 6da3b653c287f2cc3f9c2012cdfd2701493e4d86
   const navigate = useNavigate();
   const [msg, setMsg] = useState("");
 
@@ -231,6 +253,7 @@ const onFocusOut = (name, value, dispatch) => {
 
             }
             else {
+<<<<<<< HEAD
             
               setMsg("Certificate unable to update.Try again!!");
               Swal.fire({
@@ -243,15 +266,24 @@ const onFocusOut = (name, value, dispatch) => {
               });
              
               //navigate("/");
+=======
+              alert("Certificate unable to update.Try again!!");
+              navigate("/");
+>>>>>>> 6da3b653c287f2cc3f9c2012cdfd2701493e4d86
             }
           })
           .then(data => console.log(JSON.stringify(data)))
           })
           .catch((error) => {
           console.log(error);
+<<<<<<< HEAD
          // alert("Server Error");
            //window.location.reload();
            setMsg("Server error, try again");
+=======
+          alert("Server Error");
+           window.location.reload();
+>>>>>>> 6da3b653c287f2cc3f9c2012cdfd2701493e4d86
     
 })
 .catch((error)=>{
@@ -444,7 +476,11 @@ const onFocusOut = (name, value, dispatch) => {
               className="form-control"
               id="certificate"
               name="certificate"
+<<<<<<< HEAD
             // value={info.certificate.value}
+=======
+              // value={info.certificate}
+>>>>>>> 6da3b653c287f2cc3f9c2012cdfd2701493e4d86
               onChange={(e) => setFile(e.target.files[0])}
             />
           </div>
@@ -521,9 +557,14 @@ const onFocusOut = (name, value, dispatch) => {
           </button>
         </form>
       </ div >
+<<<<<<< HEAD
     {/* <p>{JSON.stringify(formData)}</p> */}
       {/* <p>{file && file.name}</p> */}
       <p className='text-danger'>{msg}</p>
+=======
+      <p>{JSON.stringify(info)}</p>
+      <p>{file && file.name}</p>
+>>>>>>> 6da3b653c287f2cc3f9c2012cdfd2701493e4d86
     </div>
   )
 }

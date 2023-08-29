@@ -1,6 +1,9 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import Swal from 'sweetalert2';
+=======
+>>>>>>> 6da3b653c287f2cc3f9c2012cdfd2701493e4d86
 
 export default function CustomerReg() {
   const init = {
@@ -124,6 +127,7 @@ const reducer = (state, action) => {
   const [allques, setAllques] = useState([]);
   const [allstates, setAllstates] = useState([]);
   const navigate = useNavigate();
+<<<<<<< HEAD
   const [msg, setMsg] = useState("");
   const [errors, setErrors] = useState({});
 
@@ -164,6 +168,8 @@ const onFocusOut = (name, value, dispatch) => {
 
 
 
+=======
+>>>>>>> 6da3b653c287f2cc3f9c2012cdfd2701493e4d86
   const sendData = (e) => {
     e.preventDefault();
     const reqOptions = {
@@ -191,6 +197,7 @@ const onFocusOut = (name, value, dispatch) => {
         console.log(resp.status);
         if (resp.status === 200) {
           //resp.json();
+<<<<<<< HEAD
           //alert("Registration Successful...!");
 
           Swal.fire({
@@ -203,6 +210,10 @@ const onFocusOut = (name, value, dispatch) => {
             navigate("/");
           });
           
+=======
+          alert("Registration Successful...!");
+          navigate("/homepage");
+>>>>>>> 6da3b653c287f2cc3f9c2012cdfd2701493e4d86
         } else {
          // alert("Registration Failed.");
          // window.location.reload();

@@ -46,15 +46,16 @@ export default function LoginComp()
                 setMsg("Wrong User Name or Password");
             }
             else
-            {   
+            {  
+                reduxAction(login())
+                localStorage.setItem("loggeduser",JSON.stringify(obj));                                     //localstorage is a window propertry
                 if(obj.approve===false)
                 {
                     alert("Your request has not been approved yet. Please wait until approval")
                 }
                 else
                 {
-                    reduxAction(login())
-                    if(obj.role_id.role_id==1)
+                    if(obj.role_id.role_id===1)
                     {
                         navigate("/admin_home");
                     }
@@ -89,13 +90,13 @@ export default function LoginComp()
                     <label className="form-label" htmlFor="user_name">Username</label>
                     <input type="text" id="user_name" className="form-control" value={info.user_name}
                     onChange={(e)=>{dispatch({type:'update',fld:'user_name',val:e.target.value})}} /> 
-                    <div id="user_namehelp" className="form-text">Error msg will displayed here</div>
+                    {/* <div id="user_namehelp" className="form-text">Error msg will displayed here</div> */}
                 </div>
                 <div className="form-outline mb-4">
                     <label className="form-label" htmlFor="password">Password</label>
                     <input type="password" id="password" className="form-control" value={info.password}
                     onChange={(e)=>{dispatch({type:'update',fld:'password',val:e.target.value})}} />
-                    <div id="pwdhelp" className="form-text">Error msg will displayed here</div>
+                    {/* <div id="pwdhelp" className="form-text">Error msg will displayed here</div> */}
                 </div>
                 <div className="row mb-4">
                     <div className="col">
@@ -105,7 +106,7 @@ export default function LoginComp()
                 <button type="button" className="btn btn-primary btn-block mb-4" onClick={(e)=>{sendData(e)}}>Sign in</button>
                 <button type="button" className="btn btn-primary btn-block mb-4" onClick={()=>{dispatch({type:'reset'})}}>Reset</button>
                 <div className="text-center">
-                    <p>Not a member? <a href="#!">Register</a></p>        
+                    {/* <p>Not a member? <a href="#!">Register</a></p>         */}
                 </div>
                 <div>
                 <p>{JSON.stringify(info)}</p>

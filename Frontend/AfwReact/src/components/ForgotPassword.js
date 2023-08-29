@@ -1,25 +1,25 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-
-export default function ForgotPassword() {
-    const [email, setEmail] = useState("");
+function ForgotPassword() {
+    const [emailid, setEmail] = useState("");
     const [securityQuestion, setSecurityQuestion] = useState("");
-    const [securityAnswer, setSecurityAnswer] = useState("");
+    const [answer, setAnswer] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
     const [isPasswordReset, setIsPasswordReset] = useState(false);
     const [msg, setMsg] = useState(""); // For error/success messages
+    const navigate = useNavigate();
 
     const handleEmailSubmit = (e) => {
         e.preventDefault();
-        const reqOptions = {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ email })
-        };
-        fetch("http://localhost:8080/checkemail", reqOptions)
+        const params = new URLSearchParams();
+        params.append('email', emailid);
+
+        fetch(`http://localhost:8080/checkemail?${params.toString()}`)
             .then(resp => {
                 if (resp.ok) {
+                    setMsg("");
                     return resp.json();
                 } else {
                     throw new Error("server Error");
@@ -29,27 +29,29 @@ export default function ForgotPassword() {
                 if (Object.keys(data).length === 0) {
                     setMsg("Email not found");
                 } else {
-                    setSecurityQuestion(data.question);                     //////////////////////////////////////
+                    setSecurityQuestion(data.que_text);                     //////////////////////////////////////
                     setIsQuestionAnswered(true);
                 }
             })
             .catch(error => {
                 console.error(error);
-                setMsg("Server error! Please try again later.");
+                setMsg("Incorrect Email ! please enter correct Email Id");
             });
     
 
     }
     const handleAnswerSubmit = (e) => {
+        
         e.preventDefault();
         const reqOptions = {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ securityAnswer })
+            body: JSON.stringify({ emailid, answer })
         };
-        fetch("http://localhost:8080/checksecurityanswer", reqOptions)
+        fetch("http://localhost:8080/checksecurityanswer" , reqOptions)
             .then(resp => {
                 if (resp.ok) {
+                    setMsg("");
                     return resp.json();
                 } else {
                     throw new Error("server Error");
@@ -65,7 +67,7 @@ export default function ForgotPassword() {
             })
             .catch(error => {
                 console.error(error);
-                setMsg("Server error! Please try again later.");
+                setMsg("Wrong Answer.please enter right answer");
             });
     };
     
@@ -74,19 +76,24 @@ export default function ForgotPassword() {
         const reqOptions = {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ email, newPassword }) // Send email and new password
+            body: JSON.stringify({ emailid, newPassword }) // Send email and new password
         };
         fetch("http://localhost:8080/resetpassword", reqOptions) // Use the appropriate endpoint
             .then(resp => {
                 if (resp.ok) {
+                    setMsg("");
                     return resp.json();
                 } else {
                     throw new Error("server Error");
                 }
             })
             .then(data => {
-                if (data.success) {
-                    setMsg("Password reset successful!"); // Display success message
+                console.log(data.status)
+                console.log(data)
+                if (data===true) {
+                        alert("Password successfully reset !");
+                        navigate('/');
+                    
                 } else {
                     setMsg("Password reset failed. Please try again."); // Display failure message
                 }
@@ -109,7 +116,7 @@ export default function ForgotPassword() {
                                     type="email"
                                     className="form-control"
                                     id="email"
-                                    value={email}
+                                    value={emailid.email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
                                 />
@@ -124,8 +131,8 @@ export default function ForgotPassword() {
                             <input
                                 type="text"
                                 className="form-control mb-3"
-                                value={securityAnswer}
-                                onChange={(e) => setSecurityAnswer(e.target.value)}
+                                value={answer}
+                                onChange={(e) => setAnswer(e.target.value)}
                                 required
                             />
                             <button type="submit" className="btn btn-primary">Submit</button>
@@ -148,7 +155,10 @@ export default function ForgotPassword() {
                         </form>
                     )}
                 </div>
+                <p>{msg}</p>
             </div>
         </div>
     );
 }
+
+export default ForgotPassword;

@@ -14,6 +14,9 @@ import CustomerReg from "./components/CustomerReg";
 import ArtistReg from "./components/ArtistReg";
 import artlogo from "../src/images/artlogo1.png";
 import NgoReg from "./components/NgoReg";
+import AddArt from "./components/AddArt";
+import ArtArt from "./components/ArtArt";
+import Cart from "./components/CartComp";
 
 import AddArt from "./components/AddArt";
 import CartPage from "./components/CartComp";
@@ -130,6 +133,7 @@ function App() {
         <Route path="/reg_ngo" element={<NgoReg />}></Route>
         <Route path="/reg_artist" element={<ArtistReg />}></Route>
         <Route path="/addart" element={<AddArt></AddArt>}></Route>
+<<<<<<< HEAD
         <Route path="/cart" element={<CartPage></CartPage>}></Route>
         
         <Route path="/viewfund" element={<ViewNgoFund></ViewNgoFund>}></Route>
@@ -143,6 +147,9 @@ function App() {
 
 
 
+=======
+        <Route path="/cart" element={<Cart></Cart>}></Route>
+>>>>>>> 6da3b653c287f2cc3f9c2012cdfd2701493e4d86
         <Route exact element={<Navigate to="/homepage" />} path="/" />
         <Route exact element={<Navigate to="/404" />} path="*" />
       </Routes>

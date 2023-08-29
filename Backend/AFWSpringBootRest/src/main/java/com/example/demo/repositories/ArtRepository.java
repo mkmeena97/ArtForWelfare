@@ -17,9 +17,14 @@ public interface ArtRepository extends JpaRepository<Art, Integer> {
 
 	@Query("select a from Art a where a.status='unsold'")
 	public List<Art> getUnsoldArts();
+
+
+	@Query("select a from Art a where a.artist_id=:artist_id")
+	public List<Art> getArtsOfArtist(int artist_id);
 	
 	@Modifying
-	@Query("update Art set image=:image where art_id=:art_id")
-	public int uploadImage(int art_id,byte[] image);
+	@Query("update Art set image=:file where art_id=:art_id")
+	public int uploadImage(int art_id,byte[] file);
+
 	
 }

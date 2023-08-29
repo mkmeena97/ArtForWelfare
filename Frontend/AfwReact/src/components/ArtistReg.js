@@ -1,6 +1,9 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import Swal from 'sweetalert2';
+=======
+>>>>>>> 6da3b653c287f2cc3f9c2012cdfd2701493e4d86
 
 export default function ArtistReg() {
   const init = {
@@ -121,6 +124,7 @@ const reducer = (state, action) => {
   const [allques, setAllques] = useState([]);
   const [allstates, setAllstates] = useState([]);
   const navigate = useNavigate();
+<<<<<<< HEAD
   const [errors, setErrors] = useState({});
   const [msg, setMsg] = useState("");
 
@@ -160,6 +164,8 @@ const onFocusOut = (name, value, dispatch) => {
 }
 
 
+=======
+>>>>>>> 6da3b653c287f2cc3f9c2012cdfd2701493e4d86
 
   const sendData = (e) => {
     e.preventDefault();
@@ -188,6 +194,7 @@ const onFocusOut = (name, value, dispatch) => {
         resp.json();
         console.log(resp.status);
         if (resp.status === 200) {
+<<<<<<< HEAD
           
           //alert("Registration Successful...!");
           //navigate("/");
@@ -202,6 +209,11 @@ const onFocusOut = (name, value, dispatch) => {
             navigate("/");
           });
 
+=======
+          //resp.json();
+          alert("Registration Successful...!");
+          navigate("/homepage");
+>>>>>>> 6da3b653c287f2cc3f9c2012cdfd2701493e4d86
         } else {
          // alert("Registration Failed.");
          // window.location.reload();
