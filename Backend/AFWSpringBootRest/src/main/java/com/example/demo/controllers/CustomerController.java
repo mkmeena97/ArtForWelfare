@@ -35,6 +35,7 @@ public class CustomerController {
 		Login l=lservice.getByID(user_id);
 		return cservice.getCustomer(l);
 	}
+	
 	@PostMapping("/regCustomer")
 	public Customer regCustomer(@RequestBody CustomerReg cs) 
 	{

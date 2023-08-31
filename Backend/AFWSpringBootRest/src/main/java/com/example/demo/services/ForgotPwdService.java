@@ -16,8 +16,6 @@ public class ForgotPwdService {
 	@Autowired
 	ForgotpwdRepository frepo;
 	
-	@Autowired
-	LoginRepository lrepo;
 	
 	public Question getQuestionText(String email)
 	{
@@ -37,9 +35,12 @@ public class ForgotPwdService {
 		return q;
 	}
 	
-	public int updatePassword(String emailid,String password)
+	public Boolean updatePassword(String emailid,String password)
 	{
-		return lrepo.resetPassword(emailid, password);
+		if(( frepo.resetPassword(emailid, password)==1))
+			return true;
+		else
+			return false;
 	}
 	
 }

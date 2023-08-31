@@ -190,8 +190,8 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `afs`.`ngo` (
   `ngo_id` INT NOT NULL UNIQUE AUTO_INCREMENT,
   `user_id` INT NOT NULL,
-  `fname` VARCHAR(50) NOT NULL,
-  `lname` VARCHAR(50) NULL DEFAULT NULL,
+  `ngo_name` VARCHAR(50) NOT NULL,
+  `domain` VARCHAR(255) NULL DEFAULT NULL,
   `area_id` INT NOT NULL ,
   `address` VARCHAR(255) NOT NULL,
   `contact` VARCHAR(20) NOT NULL UNIQUE ,
@@ -222,8 +222,8 @@ CREATE TABLE IF NOT EXISTS `afs`.`arts` (
   `ngo_id` INT NOT NULL,
   `description` TEXT NULL DEFAULT NULL,
   `art_name` VARCHAR(50) NOT NULL,
-  `status` VARCHAR(10)  NOT NULL DEFAULT 'unsold', 
-  `image` BLOB NOT NULL,
+  `status` VARCHAR(10) NULL DEFAULT NULL, 
+  `image` BLOB NULL DEFAULT NULL,
   PRIMARY KEY (`art_id`),
   INDEX `artist_id` (`artist_id` ASC) VISIBLE,
   INDEX `cat_id` (`cat_id` ASC) VISIBLE,
@@ -241,6 +241,7 @@ CREATE TABLE IF NOT EXISTS `afs`.`arts` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
+
 
 DELIMITER //
 CREATE PROCEDURE UpdateFundsForSoldArt(art_id INT, ngo_id INT, price DECIMAL(10, 2))
@@ -271,6 +272,8 @@ BEGIN
 END;
 //
 DELIMITER ;
+
+
 
 
 -- -----------------------------------------------------
@@ -523,10 +526,10 @@ VALUES
 
 -- Insert data into afs.ngo table    
 
-INSERT INTO afs.ngo (user_id, fname, lname, area_id, address, contact)
+INSERT INTO afs.ngo (user_id, ngo_name, domain, area_id, address, contact)
 VALUES
-    (1004, 'NGO One', 'Organization', 141, '212 gokhlenagar' , '555-9876'),
-    (1006, 'NGO Two', 'Foundation', 142, '280 jagatpura' , '555-5432');
+    (1004, 'NGO One', 'Helping organization For Cancer patient ', 141, '212 gokhlenagar' , '555-9876'),
+    (1006, 'NGO Two', 'We Provide Food for homeless peoples', 142, '280 jagatpura' , '555-5432');
 
 -- Insert data into afs.category table
 INSERT INTO `afs`.`categories` (`cat_name`)

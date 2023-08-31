@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-
-export default function ForgotPassword() {
+function ForgotPassword() {
     const [emailid, setEmail] = useState("");
     const [securityQuestion, setSecurityQuestion] = useState("");
     const [answer, setAnswer] = useState("");
@@ -9,6 +9,7 @@ export default function ForgotPassword() {
     const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
     const [isPasswordReset, setIsPasswordReset] = useState(false);
     const [msg, setMsg] = useState(""); // For error/success messages
+    const navigate = useNavigate();
 
     const handleEmailSubmit = (e) => {
         e.preventDefault();
@@ -87,8 +88,12 @@ export default function ForgotPassword() {
                 }
             })
             .then(data => {
-                if (data.success) {
-                    setMsg("Password reset successful!"); // Display success message
+                console.log(data.status)
+                console.log(data)
+                if (data===true) {
+                        alert("Password successfully reset !");
+                        navigate('/');
+                    
                 } else {
                     setMsg("Password reset failed. Please try again."); // Display failure message
                 }
@@ -155,3 +160,5 @@ export default function ForgotPassword() {
         </div>
     );
 }
+
+export default ForgotPassword;
