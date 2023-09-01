@@ -29,7 +29,10 @@ CREATE TABLE IF NOT EXISTS `afs`.`roles` (
   PRIMARY KEY (`role_id`),
   UNIQUE INDEX `role_id` (`role_id` ASC) VISIBLE)
 ENGINE = InnoDB
+<<<<<<< HEAD
+=======
 AUTO_INCREMENT = 5
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -43,7 +46,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`questions` (
   PRIMARY KEY (`que_id`),
   UNIQUE INDEX `que_id` (`que_id` ASC) VISIBLE)
 ENGINE = InnoDB
+<<<<<<< HEAD
+AUTO_INCREMENT = 11
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+AUTO_INCREMENT = 11
+========
 AUTO_INCREMENT = 14
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -72,7 +83,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`users` (
     FOREIGN KEY (`que_id`)
     REFERENCES `afs`.`questions` (`que_id`))
 ENGINE = InnoDB
+<<<<<<< HEAD
+AUTO_INCREMENT = 1001
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+AUTO_INCREMENT = 1001
+========
 AUTO_INCREMENT = 1019
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -106,7 +125,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`states` (
   PRIMARY KEY (`state_id`),
   UNIQUE INDEX `state_id` (`state_id` ASC) VISIBLE)
 ENGINE = InnoDB
+<<<<<<< HEAD
+AUTO_INCREMENT = 1101
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+AUTO_INCREMENT = 1101
+========
 AUTO_INCREMENT = 75
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -125,7 +152,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`cities` (
     FOREIGN KEY (`state_id`)
     REFERENCES `afs`.`states` (`state_id`))
 ENGINE = InnoDB
+<<<<<<< HEAD
+AUTO_INCREMENT = 1241
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+AUTO_INCREMENT = 1241
+========
 AUTO_INCREMENT = 203
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -144,7 +179,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`areas` (
     FOREIGN KEY (`city_id`)
     REFERENCES `afs`.`cities` (`city_id`))
 ENGINE = InnoDB
+<<<<<<< HEAD
+AUTO_INCREMENT = 1301
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+AUTO_INCREMENT = 1301
+========
 AUTO_INCREMENT = 240
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -173,7 +216,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`artists` (
     FOREIGN KEY (`area_id`)
     REFERENCES `afs`.`areas` (`area_id`))
 ENGINE = InnoDB
+<<<<<<< HEAD
+AUTO_INCREMENT = 2001
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+AUTO_INCREMENT = 2001
+========
 AUTO_INCREMENT = 2004
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -187,7 +238,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`categories` (
   PRIMARY KEY (`cat_id`),
   UNIQUE INDEX `cat_id` (`cat_id` ASC) VISIBLE)
 ENGINE = InnoDB
+<<<<<<< HEAD
+AUTO_INCREMENT = 201
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+AUTO_INCREMENT = 201
+========
 AUTO_INCREMENT = 211
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -202,6 +261,14 @@ CREATE TABLE IF NOT EXISTS `afs`.`ngo` (
   `domain` VARCHAR(255) NULL DEFAULT NULL,
   `area_id` INT NOT NULL,
   `address` VARCHAR(255) NOT NULL,
+<<<<<<< HEAD
+  `contact` VARCHAR(20) NOT NULL,
+  `certificate` LONGBLOB NULL DEFAULT NULL,
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+  `contact` VARCHAR(20) NOT NULL,
+  `certificate` LONGBLOB NULL DEFAULT NULL,
+========
 <<<<<<< HEAD:Database/Tables/database.sql
   `contact` VARCHAR(20) NOT NULL,
   `certificate` LONGBLOB NULL DEFAULT NULL,
@@ -211,6 +278,8 @@ CREATE TABLE IF NOT EXISTS `afs`.`ngo` (
   `certificate` LONGBLOB  NULL DEFAULT NULL,
 
 >>>>>>> fd22069a82f912006bbd003916806900bc711637:Database/Tables/UpdatedDatabase.sql
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
   `account_no` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`ngo_id`),
   UNIQUE INDEX `ngo_id` (`ngo_id` ASC) VISIBLE,
@@ -224,7 +293,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`ngo` (
     FOREIGN KEY (`area_id`)
     REFERENCES `afs`.`areas` (`area_id`))
 ENGINE = InnoDB
+<<<<<<< HEAD
+AUTO_INCREMENT = 5001
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+AUTO_INCREMENT = 5001
+========
 AUTO_INCREMENT = 5008
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -240,6 +317,14 @@ CREATE TABLE IF NOT EXISTS `afs`.`arts` (
   `ngo_id` INT NOT NULL,
   `description` TEXT NULL DEFAULT NULL,
   `art_name` VARCHAR(50) NOT NULL,
+<<<<<<< HEAD
+  `status` VARCHAR(10) NOT NULL DEFAULT 'unsold',
+  `image` LONGBLOB NULL DEFAULT NULL,
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+  `status` VARCHAR(10) NOT NULL DEFAULT 'unsold',
+  `image` LONGBLOB NULL DEFAULT NULL,
+========
 <<<<<<< HEAD:Database/Tables/database.sql
   `status` VARCHAR(10) NOT NULL DEFAULT 'unsold',
   `image` LONGBLOB NULL DEFAULT NULL,
@@ -249,6 +334,8 @@ CREATE TABLE IF NOT EXISTS `afs`.`arts` (
   `image` LONGBLOB NULL  DEFAULT NULL,
 
 >>>>>>> fd22069a82f912006bbd003916806900bc711637:Database/Tables/UpdatedDatabase.sql
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
   PRIMARY KEY (`art_id`),
   UNIQUE INDEX `art_id` (`art_id` ASC) VISIBLE,
   INDEX `artist_id` (`artist_id` ASC) VISIBLE,
@@ -264,7 +351,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`arts` (
     FOREIGN KEY (`ngo_id`)
     REFERENCES `afs`.`ngo` (`ngo_id`))
 ENGINE = InnoDB
+<<<<<<< HEAD
+AUTO_INCREMENT = 8001
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+AUTO_INCREMENT = 8001
+========
 AUTO_INCREMENT = 8021
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -283,7 +378,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`afw_fund` (
     FOREIGN KEY (`art_id`)
     REFERENCES `afs`.`arts` (`art_id`))
 ENGINE = InnoDB
+<<<<<<< HEAD
+AUTO_INCREMENT = 301
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+AUTO_INCREMENT = 301
+========
 AUTO_INCREMENT = 313
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -311,7 +414,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`customers` (
     FOREIGN KEY (`area_id`)
     REFERENCES `afs`.`areas` (`area_id`))
 ENGINE = InnoDB
+<<<<<<< HEAD
+AUTO_INCREMENT = 3001
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+AUTO_INCREMENT = 3001
+========
 AUTO_INCREMENT = 3007
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -335,7 +446,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`ngo_fund` (
     FOREIGN KEY (`art_id`)
     REFERENCES `afs`.`arts` (`art_id`))
 ENGINE = InnoDB
+<<<<<<< HEAD
+AUTO_INCREMENT = 401
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+AUTO_INCREMENT = 401
+========
 AUTO_INCREMENT = 413
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -359,7 +478,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`orders` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
+<<<<<<< HEAD
+AUTO_INCREMENT = 7001
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+AUTO_INCREMENT = 7001
+========
 AUTO_INCREMENT = 7008
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -381,7 +508,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`order_details` (
     FOREIGN KEY (`art_id`)
     REFERENCES `afs`.`arts` (`art_id`))
 ENGINE = InnoDB
+<<<<<<< HEAD
+AUTO_INCREMENT = 7501
+=======
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+AUTO_INCREMENT = 7501
+========
 AUTO_INCREMENT = 7513
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -457,31 +592,15 @@ DELIMITER ;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD:Database/Tables/database.sql
 =======
-
-DELIMITER //
-CREATE TRIGGER update_art_status_after_order_insert
-AFTER INSERT ON `afs`.`order_details`
-FOR EACH ROW
-BEGIN
-    -- Update the status of the artwork to 'sold'
-    UPDATE `afs`.`arts`
-    SET status = 'sold'
-    WHERE art_id = NEW.art_id;
-END;
-//
-DELIMITER ;
-
 
 
 -- ------------------------------------------------------------------------------------
 --	DUMMY DATA
 -- ------------------------------------------------------------------------------------
-
-
--- Insert data into afs.roles table
-
 
 
 INSERT INTO `afs`.`roles` (`role_name`)
@@ -503,97 +622,458 @@ VALUES
 
 INSERT INTO afs.users (user_name, password, email, role_id, que_id, answer, approve)
 VALUES
-    ('admin', 'admin123', 'admin@example.com', 1, 11, 'Blue', 1),
-    ('artist1', 'artist123', 'artist1@example.com', 2, 12, 'Fluffy', 1),
-    ('customer1', 'customer123', 'customer1@example.com', 3, 13, 'Smith', 1),
-    ('ngo1', 'ngo123', 'ngo1@example.com', 4, 11, 'Blue', 1),
-    ('artist2', 'artist456', 'artist2@example.com', 2, 12, 'Buddy', 1),
-    ('ngo2', 'ngo789', 'ngo2@example.com', 4, 11, 'Green', 1),
-    ('customer2', 'customer456', 'customer2@example.com', 3, 13, 'Johnson', 1),
-    ('admin2', 'admin456', 'admin2@example.com', 1, 11, 'Red', 1),
-    ('Alice', 'customer123', 'alice@example.com', 3, 13, 'Brown', 1),
-    ('Bob', 'customer456', 'bob@example.com', 3, 11, 'Yellow', 1),
-    ('Eva', 'customer456', 'eva@example.com', 3, 12, 'Whiskers', 1),
-    ('JohnDoe', 'admin123', 'john.doe@example.com', 1, 13, 'Garcia', 1),
-    ('EmilyJ', 'admin456', 'emily.johnson@example.com', 1, 11, 'Purple', 1),
-    ('JaneSmith', 'artist123', 'jane.smith@example.com', 2, 12, 'Milo', 1),
-    ('WilliamB', 'artist456', 'william.brown@example.com', 2, 13, 'Davis', 1),
-    ('MichaelJ', 'artist456', 'michael.johnson@example.com', 2, 11, 'Orange', 1);
-
-
-
-
--- Insert data into afs.state table
-
-INSERT INTO afs.states (state_name)
-VALUES
-    ('Delhi'),
-    ('Maharashtra'),
-    ('Karnataka'),
-    ('Tamil Nadu'),
-    ('Uttar Pradesh');
+    ('abhinav', 'Abhinav@123', 'abhinav@gmail.com', 1, 11, 'Blue', 1),
+    ('mahendra', 'Mahendra@123', 'mahendra@gmail.com', 1, 12, 'Fluffy', 1);
+   
 
 
 -- Insert data into afs.admin table
 
 INSERT INTO afs.admins (user_id, fname, lname)
 VALUES
-    (1001, 'John', 'Doe'),
-    (1008, 'Emily', 'Johnson'),
-    (1012, 'John', 'Doe'), 
-    (1013, 'Emily', 'Johnson');
+    (1001, 'Abhinav', 'Kumar'),
+    (1002, 'Mahendra', 'Meena');
+    
+-- Insert data into afs.state table
+
+INSERT INTO afs.states (state_name)
+VALUES
+    ('Andhra Pradesh'),
+    ('Arunachal Pradesh'),
+    ('Assam'),
+    ('Bihar'),
+    ('Chhattisgarh'),
+    ('Goa'),
+    ('Gujarat'),
+    ('Haryana'),
+    ('Himachal Pradesh'),
+    ('Jharkhand'),
+    ('Karnataka'),
+    ('Kerala'),
+    ('Madhya Pradesh'),
+    ('Maharashtra'),
+    ('Manipur'),
+    ('Meghalaya'),
+    ('Mizoram'),
+    ('Nagaland'),
+    ('Odisha'),
+    ('Punjab'),
+    ('Rajasthan'),
+    ('Sikkim'),
+    ('Tamil Nadu'),
+    ('Telangana'),
+    ('Tripura'),
+    ('Uttar Pradesh'),
+    ('Uttarakhand'),
+    ('West Bengal'),
+    ('Andaman and Nicobar Islands'),
+    ('Chandigarh'),
+    ('Dadra and Nagar Haveli and Daman and Diu'),
+    ('Lakshadweep'),
+    ('Delhi'),
+    ('Puducherry');
 
 
+  
 
 -- Insert data into afs.city table
 
-INSERT INTO afs.cities (city_name, state_id)
-VALUES
-    ('New Delhi', 41),
-    ('Mumbai', 42),
-    ('Bangalore', 43),
-    ('Chennai', 44),
-    ('Lucknow', 45);
+-- Andhra Pradesh
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Visakhapatnam', 1101),
+    ('Vijayawada', 1101),
+    ('Tirupati', 1101);
+
+-- Arunachal Pradesh
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Itanagar', 1102),
+    ('Naharlagun', 1102),
+    ('Pasighat', 1102);
+
+-- Assam
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Guwahati', 1103),
+    ('Dibrugarh', 1103),
+    ('Silchar', 1103);
+
+-- Bihar
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Patna', 1104),
+    ('Gaya', 1104),
+    ('Muzaffarpur', 1104);
+
+-- Chhattisgarh
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Raipur', 1105),
+    ('Bhilai', 1105),
+    ('Bilaspur', 1105);
+
+-- Goa
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Panaji', 1106),
+    ('Margao', 1106),
+    ('Vasco da Gama', 1106);
+
+-- Gujarat
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Ahmedabad', 1107),
+    ('Surat', 1107),
+    ('Vadodara', 1107);
+
+-- Haryana
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Chandigarh', 1108),
+    ('Faridabad', 1108),
+    ('Gurgaon', 1108);
+
+-- Himachal Pradesh
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Shimla', 1109),
+    ('Dharamshala', 1109),
+    ('Mandi', 1109);
+
+-- Jharkhand
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Ranchi', 1110),
+    ('Jamshedpur', 1110),
+    ('Dhanbad', 1110);
+
+-- Karnataka
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Bengaluru', 1111),
+    ('Mysuru', 1111),
+    ('Hubballi', 1111);
+
+-- Kerala
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Thiruvananthapuram', 1112),
+    ('Kochi', 1112),
+    ('Kozhikode', 1112);
+
+-- Madhya Pradesh
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Bhopal', 1113),
+    ('Indore', 1113),
+    ('Gwalior', 1113);
+
+-- Maharashtra
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Mumbai', 1114),
+    ('Pune', 1114),
+    ('Nagpur', 1114);
+
+-- Manipur
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Imphal', 1115),
+    ('Thoubal', 1115),
+    ('Bishnupur', 1115);
+
+-- Meghalaya
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Shillong', 1116),
+    ('Tura', 1116),
+    ('Jowai', 1116);
+
+-- Mizoram
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Aizawl', 1117),
+    ('Lunglei', 1117),
+    ('Champhai', 1117);
+
+-- Nagaland
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Kohima', 1118),
+    ('Dimapur', 1118),
+    ('Mokokchung', 1118);
+
+-- Odisha
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Bhubaneswar', 1119),
+    ('Cuttack', 1119),
+    ('Rourkela', 1119);
+
+-- Punjab
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Chandigarh', 1120),
+    ('Ludhiana', 1120),
+    ('Amritsar', 1120);
+
+-- Rajasthan
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Jaipur', 1121),
+    ('Jodhpur', 1121),
+    ('Udaipur', 1121);
+
+-- Sikkim
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Gangtok', 1122),
+    ('Namchi', 1122),
+    ('Mangan', 1122);
+
+-- Tamil Nadu
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Chennai', 1123),
+    ('Coimbatore', 1123),
+    ('Madurai', 1123);
+
+-- Telangana
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Hyderabad', 1124),
+    ('Warangal', 1124),
+    ('Nizamabad', 1124);
+
+-- Tripura
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Agartala', 1125),
+    ('Udaipur', 1125),
+    ('Dharmanagar', 1125);
+
+-- Uttar Pradesh
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Lucknow', 1126),
+    ('Kanpur', 1126),
+    ('Agra', 1126);
+
+-- Uttarakhand
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Dehradun', 1127),
+    ('Haridwar', 1127),
+    ('Rishikesh', 1127);
+
+-- West Bengal
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Kolkata', 1128),
+    ('Howrah', 1128),
+    ('Durgapur', 1128);
+
+-- Andaman and Nicobar Islands
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Port Blair', 1129),
+    ('Havelock Island', 1129),
+    ('Diglipur', 1129);
+
+-- Chandigarh
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Chandigarh', 1130),
+    ('Panchkula', 1130),
+    ('Mohali', 1130);
+
+-- Dadra and Nagar Haveli and Daman and Diu
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Daman', 1131),
+    ('Silvassa', 1131),
+    ('Diu', 1131);
+
+-- Lakshadweep
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Kavaratti', 1132),
+    ('Agatti', 1132),
+    ('Amini', 1132);
+
+-- Delhi
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('New Delhi', 1133),
+    ('Delhi Cantonment', 1133);
     
+-- Puducherry
+INSERT INTO afs.cities (city_name, state_id) VALUES
+    ('Puducherry', 1134),
+    ('Karaikal', 1134),
+    ('Mahe', 1134);
+
+    
+
     
 
 -- Insert data into afs.area table
     
-INSERT INTO afs.areas (area_name, city_id)
-VALUES
-    ('Connaught Place', 101),
-    ('Dadar', 102),
-    ('Koramangala', 103),
-    ('T. Nagar', 104),
-    ('Hazratganj', 105);
 
--- Insert data into afs.artists table    
+-- Andhra Pradesh
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Beachside', 1241),
+    ('Downtown', 1241),
+    ('Hillview', 1242),
+    ('Green Valley', 1242);
 
-INSERT INTO afs.artists (user_id, fname, lname, area_id, contact, speciality)
-VALUES
-    (1002, 'Jane', 'Smith', 141, '555-1234', 'Impressionism'),
-    (1005, 'Artist', 'Two', 142, '555-5555', 'Abstract'),
-    (1014, 'Jane', 'Smith', 141, '555-1235', 'Realism'),
-    (1015, 'William', 'Brown', 142, '555-5678', 'Cubism'),
-    (1016, 'Michael', 'Johnson', 141, '555-7890', 'Surrealism');
+-- Arunachal Pradesh
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('City Center', 1243),
+    ('Riverside', 1243),
+    ('Mountain View', 1244),
+    ('Lakefront', 1244);
 
--- Insert data into afs.customers table
+-- Assam
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Historic District', 1245),
+    ('Business Park', 1245),
+    ('Suburbia', 1246),
+    ('Parks and Recreation', 1246);
+
+-- Continue inserting imaginary areas for Indian cities with auto-incremented IDs starting from 1241
+
+-- Bihar
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Riverside View', 1247),
+    ('Central Square', 1247);
+
+-- Chhattisgarh
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('City Heights', 1248),
+    ('Lakefront Park', 1248);
+
+-- Goa
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Beachfront Paradise', 1249),
+    ('Palm Grove', 1249);
+
+-- Gujarat
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Business District', 1250),
+    ('Garden Oasis', 1250);
+
+-- Haryana
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Metro Heights', 1251),
+    ('Greenfield Estates', 1251);
+
+-- Himachal Pradesh
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Hillside Retreat', 1252),
+    ('Valley View', 1252);
+
+-- Jharkhand
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Urban Center', 1253),
+    ('Forest Ridge', 1253);
+
+-- Karnataka
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Tech Park', 1254),
+    ('Garden City', 1254);
+
+-- Kerala
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Coastal Haven', 1255),
+    ('Backwater Bliss', 1255);
     
-INSERT INTO afs.customers (user_id, fname, lname, area_id, contact)
-VALUES
-    (1003, 'Customer', 'One', 142, '555-4444'), 
-    (1007, 'Customer', 'Two', 141, '555-5555'), 
-    (1009, 'Alice', 'Johnson', 141, '555-1111'),
-    (1010, 'Bob', 'Williams', 142, '555-2222'),
-    (1011, 'Eva', 'Martinez', 141, '555-3333');    
+    -- Madhya Pradesh
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Historic Square', 1256),
+    ('Riverfront View', 1256);
+
+-- Maharashtra
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Financial District', 1257),
+    ('Cultural Hub', 1257);
+
+-- Manipur
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Heritage Park', 1258),
+    ('Riverbank Views', 1258);
+
+-- Meghalaya
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Scenic Hills', 1259),
+    ('Lakeside Retreat', 1259);
+
+-- Continue inserting imaginary areas for Indian cities with auto-incremented IDs starting from 1241
+
+-- Mizoram
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Cityscape View', 1260),
+    ('Lush Green Valley', 1260);
+
+-- Nagaland
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Highland Haven', 1261),
+    ('Riverfront Plaza', 1261);
+
+-- Odisha
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Oceanview Promenade', 1262),
+    ('Cultural Heritage District', 1262);
+
+-- Punjab
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Punjab Heartland', 1263),
+    ('Golden Temple Plaza', 1263);
+
+-- Rajasthan
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Royal Palace Gardens', 1264),
+    ('Desert Oasis', 1264);
+
+-- Sikkim
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Himalayan Heights', 1265),
+    ('Monastery Square', 1265);
+
+-- Tamil Nadu
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Marina Bay', 1266),
+    ('Silicon Valley', 1266);
+
+-- Telangana
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Tech Hub Plaza', 1267),
+    ('Lakeside Serenity', 1267);
+
+-- Tripura
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Green Retreat', 1268),
+    ('Cultural Junction', 1268);
+
+-- Uttar Pradesh
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Historic Heritage Square', 1269),
+    ('Ganges Riverfront', 1269);
+
+-- Uttarakhand
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Himalayan Getaway', 1270),
+    ('Adventure Haven', 1270);
+
+-- West Bengal
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('City of Joy Central', 1271),
+    ('Mangrove Bay Views', 1271);
+
+-- Andaman and Nicobar Islands
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Island Paradise Retreat', 1272),
+    ('Coral Cove', 1272);
+
+-- Chandigarh
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Union Territory Hub', 1273),
+    ('Garden City Plaza', 1273);
+
+-- Dadra and Nagar Haveli and Daman and Diu
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Daman Waterfront', 1274),
+    ('Silvassa Green Park', 1274);
+
+-- Lakshadweep
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Tropical Island Oasis', 1275),
+    ('Lagoon View', 1275);
+
+-- Delhi
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('Capital City Central', 1276),
+    ('Historic Landmarks District', 1276);
+
+-- Puducherry
+INSERT INTO afs.areas (area_name, city_id) VALUES
+    ('French Riviera', 1277),
+    ('Paradise Beachfront', 1277);
 
 
--- Insert data into afs.ngo table    
 
-INSERT INTO afs.ngo (user_id, ngo_name, domain, area_id, address, contact)
-VALUES
-    (1004, 'NGO One', 'Helping organization For Cancer patient ', 141, '212 gokhlenagar' , '555-9876'),
-    (1006, 'NGO Two', 'We Provide Food for homeless peoples', 142, '280 jagatpura' , '555-5432');
+    
+
+
+
 
 -- Insert data into afs.category table
 INSERT INTO `afs`.`categories` (`cat_name`)
@@ -611,9 +1091,13 @@ VALUES
 
 
 
+<<<<<<<< HEAD:Database/Tables/UpdatedDatabase.sql
+========
 
     
   
     
   
 >>>>>>> fd22069a82f912006bbd003916806900bc711637:Database/Tables/UpdatedDatabase.sql
+>>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737:Database/Tables/database.sql
+>>>>>>> 17a4a0dc8e73087ee57ee6a2395390c8612ee737
