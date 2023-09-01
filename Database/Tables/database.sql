@@ -202,8 +202,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`ngo` (
   `domain` VARCHAR(255) NULL DEFAULT NULL,
   `area_id` INT NOT NULL,
   `address` VARCHAR(255) NOT NULL,
+<<<<<<< HEAD:Database/Tables/database.sql
   `contact` VARCHAR(20) NOT NULL,
   `certificate` LONGBLOB NULL DEFAULT NULL,
+=======
+  `contact` VARCHAR(20) NOT NULL UNIQUE ,
+
+  `certificate` LONGBLOB  NULL DEFAULT NULL,
+
+>>>>>>> fd22069a82f912006bbd003916806900bc711637:Database/Tables/UpdatedDatabase.sql
   `account_no` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`ngo_id`),
   UNIQUE INDEX `ngo_id` (`ngo_id` ASC) VISIBLE,
@@ -233,8 +240,15 @@ CREATE TABLE IF NOT EXISTS `afs`.`arts` (
   `ngo_id` INT NOT NULL,
   `description` TEXT NULL DEFAULT NULL,
   `art_name` VARCHAR(50) NOT NULL,
+<<<<<<< HEAD:Database/Tables/database.sql
   `status` VARCHAR(10) NOT NULL DEFAULT 'unsold',
   `image` LONGBLOB NULL DEFAULT NULL,
+=======
+
+  `status` VARCHAR(10) NULL  DEFAULT NULL, 
+  `image` LONGBLOB NULL  DEFAULT NULL,
+
+>>>>>>> fd22069a82f912006bbd003916806900bc711637:Database/Tables/UpdatedDatabase.sql
   PRIMARY KEY (`art_id`),
   UNIQUE INDEX `art_id` (`art_id` ASC) VISIBLE,
   INDEX `artist_id` (`artist_id` ASC) VISIBLE,
@@ -443,3 +457,163 @@ DELIMITER ;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+<<<<<<< HEAD:Database/Tables/database.sql
+=======
+
+DELIMITER //
+CREATE TRIGGER update_art_status_after_order_insert
+AFTER INSERT ON `afs`.`order_details`
+FOR EACH ROW
+BEGIN
+    -- Update the status of the artwork to 'sold'
+    UPDATE `afs`.`arts`
+    SET status = 'sold'
+    WHERE art_id = NEW.art_id;
+END;
+//
+DELIMITER ;
+
+
+
+-- ------------------------------------------------------------------------------------
+--	DUMMY DATA
+-- ------------------------------------------------------------------------------------
+
+
+-- Insert data into afs.roles table
+
+
+
+INSERT INTO `afs`.`roles` (`role_name`)
+VALUES
+    ('Admin'),
+    ('Artist'),
+    ('Customer'),
+    ('NGO');
+
+-- Insert data into afs.questions table
+
+INSERT INTO `afs`.`questions` (`que_text`)
+VALUES
+    ('What is your favorite color?'),
+    ('What is your pet\'s name?'),
+    ('What is your mother\'s maiden name?');
+
+-- Insert data into afs.users table
+
+INSERT INTO afs.users (user_name, password, email, role_id, que_id, answer, approve)
+VALUES
+    ('admin', 'admin123', 'admin@example.com', 1, 11, 'Blue', 1),
+    ('artist1', 'artist123', 'artist1@example.com', 2, 12, 'Fluffy', 1),
+    ('customer1', 'customer123', 'customer1@example.com', 3, 13, 'Smith', 1),
+    ('ngo1', 'ngo123', 'ngo1@example.com', 4, 11, 'Blue', 1),
+    ('artist2', 'artist456', 'artist2@example.com', 2, 12, 'Buddy', 1),
+    ('ngo2', 'ngo789', 'ngo2@example.com', 4, 11, 'Green', 1),
+    ('customer2', 'customer456', 'customer2@example.com', 3, 13, 'Johnson', 1),
+    ('admin2', 'admin456', 'admin2@example.com', 1, 11, 'Red', 1),
+    ('Alice', 'customer123', 'alice@example.com', 3, 13, 'Brown', 1),
+    ('Bob', 'customer456', 'bob@example.com', 3, 11, 'Yellow', 1),
+    ('Eva', 'customer456', 'eva@example.com', 3, 12, 'Whiskers', 1),
+    ('JohnDoe', 'admin123', 'john.doe@example.com', 1, 13, 'Garcia', 1),
+    ('EmilyJ', 'admin456', 'emily.johnson@example.com', 1, 11, 'Purple', 1),
+    ('JaneSmith', 'artist123', 'jane.smith@example.com', 2, 12, 'Milo', 1),
+    ('WilliamB', 'artist456', 'william.brown@example.com', 2, 13, 'Davis', 1),
+    ('MichaelJ', 'artist456', 'michael.johnson@example.com', 2, 11, 'Orange', 1);
+
+
+
+
+-- Insert data into afs.state table
+
+INSERT INTO afs.states (state_name)
+VALUES
+    ('Delhi'),
+    ('Maharashtra'),
+    ('Karnataka'),
+    ('Tamil Nadu'),
+    ('Uttar Pradesh');
+
+
+-- Insert data into afs.admin table
+
+INSERT INTO afs.admins (user_id, fname, lname)
+VALUES
+    (1001, 'John', 'Doe'),
+    (1008, 'Emily', 'Johnson'),
+    (1012, 'John', 'Doe'), 
+    (1013, 'Emily', 'Johnson');
+
+
+
+-- Insert data into afs.city table
+
+INSERT INTO afs.cities (city_name, state_id)
+VALUES
+    ('New Delhi', 41),
+    ('Mumbai', 42),
+    ('Bangalore', 43),
+    ('Chennai', 44),
+    ('Lucknow', 45);
+    
+    
+
+-- Insert data into afs.area table
+    
+INSERT INTO afs.areas (area_name, city_id)
+VALUES
+    ('Connaught Place', 101),
+    ('Dadar', 102),
+    ('Koramangala', 103),
+    ('T. Nagar', 104),
+    ('Hazratganj', 105);
+
+-- Insert data into afs.artists table    
+
+INSERT INTO afs.artists (user_id, fname, lname, area_id, contact, speciality)
+VALUES
+    (1002, 'Jane', 'Smith', 141, '555-1234', 'Impressionism'),
+    (1005, 'Artist', 'Two', 142, '555-5555', 'Abstract'),
+    (1014, 'Jane', 'Smith', 141, '555-1235', 'Realism'),
+    (1015, 'William', 'Brown', 142, '555-5678', 'Cubism'),
+    (1016, 'Michael', 'Johnson', 141, '555-7890', 'Surrealism');
+
+-- Insert data into afs.customers table
+    
+INSERT INTO afs.customers (user_id, fname, lname, area_id, contact)
+VALUES
+    (1003, 'Customer', 'One', 142, '555-4444'), 
+    (1007, 'Customer', 'Two', 141, '555-5555'), 
+    (1009, 'Alice', 'Johnson', 141, '555-1111'),
+    (1010, 'Bob', 'Williams', 142, '555-2222'),
+    (1011, 'Eva', 'Martinez', 141, '555-3333');    
+
+
+-- Insert data into afs.ngo table    
+
+INSERT INTO afs.ngo (user_id, ngo_name, domain, area_id, address, contact)
+VALUES
+    (1004, 'NGO One', 'Helping organization For Cancer patient ', 141, '212 gokhlenagar' , '555-9876'),
+    (1006, 'NGO Two', 'We Provide Food for homeless peoples', 142, '280 jagatpura' , '555-5432');
+
+-- Insert data into afs.category table
+INSERT INTO `afs`.`categories` (`cat_name`)
+VALUES
+    ('Painting'),
+    ('Sculpture'),
+    ('Photography'),
+    ('Drawing'),
+    ('Digital Art'),
+    ('Mixed Media'),
+    ('Printmaking'),
+    ('Ceramics'),
+    ('Textile Art'),
+    ('Illustration');
+
+
+
+
+    
+  
+    
+  
+>>>>>>> fd22069a82f912006bbd003916806900bc711637:Database/Tables/UpdatedDatabase.sql
