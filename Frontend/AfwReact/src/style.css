@@ -1,0 +1,137 @@
+.white{
+    color: white;
+}
+.yellow{
+    color: rgb(255, 204, 0);
+}
+.red{
+    color: rgb(255, 0, 0);
+}
+.green{
+    color: rgb(1, 192, 1);
+}
+.darkgreen{
+    color: rgb(0, 130, 4);
+}
+.bg-grey{
+    background-color: rgb(236, 235, 235);
+    
+}
+.bg-darkgrey{
+    background-color: rgb(122, 122, 122);
+    
+}
+.bg-image {
+background-image: url(../images/gallery2.jpg);
+}
+
+.divider {
+    background-color: rgb(255, 230, 216);
+    text-align: center;
+    padding: 12%;
+  }
+
+.img-radius{
+    border-radius: 50%;
+}
+.nv {
+    background-color: rgb(208, 208, 208);
+    
+    border:none;
+}
+.img{
+    margin-left: 200px;
+    margin-right: 50px;
+}
+.po-img{
+    width: 23%;
+    border-radius: 50%;
+}
+.card{
+    background-color: rgb(251, 251, 251);
+
+}
+.card-footer{
+    background-color: rgb(255, 187, 0);
+    color: black;
+}
+.card-body{
+    border-bottom: 1px solid rgb(215, 215, 215);
+}
+.text-left{
+    text-align: left;
+}
+.store-btn1{
+    width: 14%;
+}
+.store-btn2{
+    width: 10%;
+}
+.input-size{
+    width:50%;
+}
+.ft-title{
+    color: greenyellow;
+}
+.pill-radius{
+    border-radius: 60%;
+    border: 0.05px solid rgb(179, 179, 179);
+   padding: 4px;
+}
+.card { background-color: rgba(245, 245, 245, 0.8); }
+.img-logo{
+    width: 65%;
+    display: block;
+    margin-left: 45px;
+
+}
+.img-logo1{
+    width: 16%;
+    display: block;
+    margin-left: 500px;
+}
+td,thead {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+
+  /*======================
+    404 page
+=======================*/
+
+.page_404 {
+    padding: 40px 0;
+    background: #fff;
+    font-family: "Arvo", serif;
+  }
+  
+  .page_404 img {
+    width: 100%;
+  }
+  
+  .four_zero_four_bg {
+    background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 400px;
+    background-position: center;
+  }
+  
+  .four_zero_four_bg h1 {
+    font-size: 80px;
+  }
+  
+  .four_zero_four_bg h3 {
+    font-size: 80px;
+  }
+  
+  .link_404 {
+    color: #fff !important;
+    padding: 10px 20px;
+    background: #39ac31;
+    margin: 20px 0;
+    display: inline-block;
+  }
+  .contant_box_404 {
+    margin-top: -50px;
+  }
+  
