@@ -14,15 +14,16 @@ import CustomerReg from "./components/CustomerReg";
 import ArtistReg from "./components/ArtistReg";
 import artlogo from "../src/images/artlogo1.png";
 import NgoReg from "./components/NgoReg";
-import AddArt from "./components/AddArt";
-import ArtArt from "./components/ArtArt";
-import Cart from "./components/CartComp";
 
 import AddArt from "./components/AddArt";
 import CartPage from "./components/CartComp";
 import ViewNgoFund from "./components/ViewNgoFund";
 import ApproveNgo from "./components/ApproveNgo";
 import AfwFundComponent from "./components/AfwFund";
+import ContactUs from "./components/ContactUs";
+import Order from "./components/Order";
+import Aboutus from "./components/Aboutus";
+import PageNotFound from "./components/PageNotFound";
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
           data-bs-theme="dark"
         >
           <div class="container">
-            <a class="navbar-brand" href="#">
+            <Link class="navbar-brand" to="/homepage">
               <img
                 src={artlogo}
                 height="66"
@@ -44,7 +45,7 @@ function App() {
                 loading="lazy"
                 style={{ marginTop: "-1px" }}
               />
-            </a>
+            </Link>
             <button
               class="navbar-toggler"
               type="button"
@@ -65,12 +66,12 @@ function App() {
                   </NavLink>
                 </li>
                 <li className="nav-item mx-2">
-                  <NavLink className="nav-link white" to="/aboutuspage">
+                  <NavLink className="nav-link white" to="/about">
                     About Us
                   </NavLink>
                 </li>
                 <li className="nav-item mx-2">
-                  <NavLink className="nav-link white" to="/contactpage">
+                  <NavLink className="nav-link white" to="/contact">
                     Contact
                   </NavLink>
                 </li>
@@ -124,7 +125,8 @@ function App() {
 
         <Route path="/login" element={<LoginComp />}></Route>
         
-        <Route path="/ngo_home" element={<NgoHome />}></Route>
+        <Route path="/ngo_home/*" element={<NgoHome />}></Route>
+        <Route path="/admin_home/*" element={<AdminHome />}></Route>
         <Route path="/customer_home" element={<CustomerHome />}></Route>
         <Route path="/artist_home" element={<ArtistHome />}></Route>
         <Route path="/logout" element={<LogoutComp />}></Route>
@@ -133,23 +135,17 @@ function App() {
         <Route path="/reg_ngo" element={<NgoReg />}></Route>
         <Route path="/reg_artist" element={<ArtistReg />}></Route>
         <Route path="/addart" element={<AddArt></AddArt>}></Route>
-<<<<<<< HEAD
+        <Route path="/about" element={<Aboutus/>}></Route>
+        <Route path="/contact" element={<ContactUs/>}></Route>
         <Route path="/cart" element={<CartPage></CartPage>}></Route>
+        <Route path="/order" element={<Order/>}></Route>
+        <Route path="/404" element={<PageNotFound/>}></Route>
         
-        <Route path="/viewfund" element={<ViewNgoFund></ViewNgoFund>}></Route>
+        {/* <Route path="/viewfund" element={<ViewNgoFund></ViewNgoFund>}></Route> */}
         <Route path="/viewafwfund" element={<AfwFundComponent/>}></Route>
 
 
-        <Route path="/admin_home" element={<AdminHome />}>
-            <Route  path="approve_ngo" element={<ApproveNgo />}></Route>
-        </Route>
 
-
-
-
-=======
-        <Route path="/cart" element={<Cart></Cart>}></Route>
->>>>>>> 6da3b653c287f2cc3f9c2012cdfd2701493e4d86
         <Route exact element={<Navigate to="/homepage" />} path="/" />
         <Route exact element={<Navigate to="/404" />} path="*" />
       </Routes>
