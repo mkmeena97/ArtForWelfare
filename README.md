@@ -13,31 +13,50 @@ ArtForWelfare is dedicated to the following objectives:
 # Project Screenshots
 
 ## HomePage
+
 ![home 1](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/66fb09ca-f3d4-4e22-8988-d800a98b1129)
 
 ![home 2](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/cd63d28b-9d85-49a0-90e6-74f95fc065f7)
 
 ## LoginPage
+
 ![login page](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/98d14960-6cf9-4085-ab71-b14e8c99f462)
 
+## Forgot Password
+
+![forget password](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/3b0872b9-1b78-411f-8d00-1c7d8f190873)
+
 ## Registration Pages
+
 ![artist registration](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/5a9d9c1b-bdd4-4fbe-ae8b-b8e82940de50)
+
 ![customer registration](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/fb28753a-dd2d-4b26-a784-f9eca7b25acb)
+
 ![ngo registration](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/4fcbfdc0-d4e2-427f-af69-71280d35316d)
 
 ## Admin Page
+
 ![Screenshot 2023-09-01 232306](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/de469d7f-dbc0-41e9-8bb3-57c64dd41269)
 
 ## Artist Page
+
 ![Screenshot 2023-09-01 232458](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/fb201257-f659-4e4a-aad7-60dc9dee707d)
 
+## ADD Art Page
+
+![Add Art](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/126b6fcb-8620-4399-9bcd-b9777e7a6c68)
+
+
 ## Customer Page
+
 ![Screenshot 2023-09-01 232730](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/11253289-ef3a-46e4-9779-e68bfdf09938)
 
 ## Cart Page
+
 ![Screenshot 2023-09-01 232553](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/b26993f5-729a-44d6-b2bb-de596140caee)
 
 ## NGO Fund Page
+
 ![ngofund](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/57a0be75-2972-48eb-9110-3172f291ee78)
 
 
