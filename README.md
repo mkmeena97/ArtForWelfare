@@ -14,7 +14,8 @@ ArtForWelfare is dedicated to the following objectives:
 
 ## HomePage
 
-![home 1](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/66fb09ca-f3d4-4e22-8988-d800a98b1129)
+![home 1](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/c3f3af2a-f584-439b-baf1-47d96a45d87c)
+
 
 ![home 2](https://github.com/mkmeena97/ArtForWelfare/assets/103668170/cd63d28b-9d85-49a0-90e6-74f95fc065f7)
 
